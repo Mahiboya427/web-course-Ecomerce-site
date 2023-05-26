@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    
 </head>
 <body>
     <section id="header">
@@ -63,17 +63,84 @@
         </li>
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html">home</a></li>
-                <li><a href="">home</a></li>
-                <li><a href="">home</a></li>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><button class="login-button">Login</button></li>
             </ul>
         </div>
     </section>
 
+    <section class="extra">
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form onsubmit="login(event)">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input id="login-email" type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input id="login-password" type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label for=""><input type="checkbox">
+                    Remember me</label>
+                    <a href="">Forget password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Dont have an account? 
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="form-box register">
+            <h2>register</h2>
+            <form  onsubmit="signup(event)">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input id="register-email" type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input id="username" type="text" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input id="register-password" type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label for=""><input type="checkbox">
+                    I agree the terms and conditions</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>already have an account? 
+                        <a href="#" class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+</section>
     <section id="hero">
+        
         <div class="explore">
             <h1>THINK BIG</h1>
-        <button>explore</button>
+        <button class="explore-button">explore</button>
         </div>
         
     </section>
@@ -256,5 +323,71 @@
             <p>> 2023, Tech2 etc HTML CSS Ecommerce Template</p> 
         </div>
         </footer>
+
+
+    <script type="module" src="login.js"></script>
+    <script type="module">
+            
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+    import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+   
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
+      authDomain: "auth-courseofferings.firebaseapp.com",
+      projectId: "auth-courseofferings",
+      storageBucket: "auth-courseofferings.appspot.com",
+      messagingSenderId: "484839394488",
+      appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
+      measurementId: "G-PMQ4DGFSBZ"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+
+    
+var username=document.getElementById("username");
+//var login_email=document.getElementById("login-email");
+var register_email=document.getElementById("register-email");
+//var login_password=document.getElementById("login-password");
+var register_password=document.getElementById("register-password");
+
+
+window.signup=function (e) {
+    e.preventDefault();
+    var obj={
+        username:username.value,
+        email:register_email.value,
+        password:register_password.value
+    
+    }
+
+    createUserWithEmailAndPassword(auth,obj.email,obj.password)
+        .then(function(success) {
+            alert("signup successfully")
+        })
+        .catch(function(err) {
+            alert("error"+err)
+            
+        })
+
+        console.log(obj);
+    
+        };
+
+
+        </script>
+        <script  src="script.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script type="text/javascript" src="https://cdn.evgnet.com/beacon/aethereusconsulting/education/scripts/evergage.min.js"></script>
 </body>
 </html>
