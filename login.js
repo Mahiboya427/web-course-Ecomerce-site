@@ -2,7 +2,7 @@
             
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+
     import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
    
     // TODO: Add SDKs for Firebase products that you want to use
@@ -22,7 +22,7 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    
     const auth = getAuth();
 
     
@@ -34,7 +34,7 @@ var login_password=document.getElementById("login-password");
 
 
 console.log(login_email.value,login_password.value);
-
+const wrapper = document.querySelector('.wrapper'); 
 
 window.login=function (e) {
     e.preventDefault();
@@ -46,11 +46,15 @@ window.login=function (e) {
 
 
     signInWithEmailAndPassword(auth,obj1.email,obj1.password)
-        .then(function(success) {
-            console.log(user.uid);
-            alert("login sucessfull")   
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        wrapper.classList.remove('active-popup'); 
+        alert("login sucessfull") ;
         
-    })
+        // ...
+      })
+   
         .catch(function (err) {
         alert("login error"+err)
                 
