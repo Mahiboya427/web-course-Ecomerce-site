@@ -6,7 +6,7 @@ var element_price=document.getElementById("element-price").textContent;
 var element_duration=document.getElementById("element-duration").textContent;
 var element_id=document.getElementById("EL").textContent;
 
-console.log("element-id",element_id,";",
+console.log("element-id:",element_id,";",
 "element-title:",element_title,";",
 "element_category:",element_category,";",
 "element_heading:",element_heading,";" ,
