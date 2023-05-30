@@ -89,7 +89,8 @@ navbar li a:active{
 
 .extra{
     height: 600px;
-    margin: 5px;
+    margin: 0px;
+    padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,6 +99,8 @@ navbar li a:active{
 }
 
 .wrapper {
+    margin-top: 0px;
+    margin-bottom: 120px;
     position: relative;
     width: 400px;
     height: 440px;
@@ -273,7 +276,18 @@ navbar li a:active{
     color: #fff;
     font-weight: 500;
 }
-
+#google-btn{
+    width: 100%;
+    height: 45px;
+    background: lightgray;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color:darkgreen;
+    font-weight: 500;
+}
 .login-register{
     font-size: .9em;
     color: darkblue;
@@ -324,6 +338,68 @@ navbar li a:active{
      
 }
 
+
+#soft-test-banner{
+    background-image: url("https://www.asictronix.com/wp-content/uploads/2020/03/testing_banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+     align-items:flex-start;
+     justify-content: center;
+     
+     
+}
+
+
+#data-banner{
+    background-image: url("https://www.blueoceanglobaltech.com/wp-content/uploads/2021/08/Data-Science-Banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+     align-items:flex-start;
+     justify-content: center;    
+}
+
+
+#comm-banner{
+    background-image: url("https://www.mhcautomation.com/wp-content/uploads/2022/09/Omnichannel-web-Banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+     align-items:flex-start;
+     justify-content: center;    
+}
+
+
+#web-banner{
+    background-image: url("https://www.obiyaninfotech.com/wp-content/uploads/2022/06/Website-Development.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+     align-items:flex-start;
+     justify-content: center;    
+}
+
 .explore-button{
     background-image: url("");
     background-color: lightgreen;
@@ -342,6 +418,31 @@ navbar li a:active{
 .explore{
     margin-bottom:300px ;
     margin-left: 900px;
+}
+
+
+.soft-explore{
+    margin-top:150px ;
+    margin-left: 250px;
+}
+
+
+.data-explore{
+    margin-top:250px ;
+    margin-left: 900px;
+}
+
+
+.comm-explore{
+    margin-top:0px ;
+    margin-left: 870px;
+}
+
+
+
+.web-explore{
+    margin-top:200px ;
+    margin-left: 100px;
 }
 
 #feature
@@ -404,7 +505,7 @@ navbar li a:active{
     border: 1px solid gray;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 20px 20px 30px green;
+    box-shadow: 10px 10px 10px green;
     margin: 15px 0px;
     transition: 0.2s ease;
     position: relative;
@@ -463,14 +564,17 @@ navbar li a:active{
     right: 10px;
 }
 
-
+.pro img{
+    height: 200px;
+    width: 200px;
+}
 #banner{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("");
+    background-image: url("https://www.shutterstock.com/image-vector/vector-abstract-background-texture-sale-260nw-1360096301.jpg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -672,6 +776,7 @@ footer .copyright{
     background: transparent;
     border-radius: 0;
     text-align: left;
+    display: block;
 
 }
 
@@ -703,4 +808,62 @@ footer .copyright{
     margin-left: 155px;
     background-color:rgb(242, 188, 241) ;
     transition: 0.02s;
+}
+
+
+#element-img{
+    height: 270px;
+    width: 400px;
+    border: 1px solid orange;
+    align-items: center;
+}
+
+#element-pic{
+    height: 230px;
+    width: 400px;
+    border: 2px solid orange;
+}
+
+
+#element-banner{
+    background-color: bisque;
+    height: 50vh;
+    margin: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid orange;
+    
+    box-shadow: 5px 5px goldenrod;
+}
+#element-information{
+    margin: 30px;
+    width: 80%;
+    padding: 20px;
+    background-color: aliceblue;
+}
+#element-info{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.element-dis{
+    margin: 30px;
+    width: 80%;
+    padding: 20px;
+    background-color: aliceblue;
+}
+.heading{
+    font-size: xx-large;
+
+}
+
+
+.star i{
+    color: gold;
+}
+
+.addcart{
+    margin-left: 20px;
 }
