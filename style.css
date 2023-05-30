@@ -14,8 +14,8 @@ body{
     align-items: center;
     justify-content:space-around;
     padding: 10px 70px;
-    background-color: rgb(206, 140, 206);
-    box-shadow: 0px 5px 10px rgb(184, 105, 105);
+    background-color: rgb(109, 203, 150);
+    box-shadow: 0px 5px 10px rgb(193, 239, 210);
     z-index: 999;
     position: sticky;
      top: 0;
@@ -88,8 +88,12 @@ navbar li a:active{
 
 
 .extra{
+    background-image: url("https://c0.wallpaperflare.com/preview/722/962/382/learn-student-laptop-internet.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 600px;
-    margin: 0px;
+    margin: 5px 0px 5px 0px;
     padding: 0px;
     display: flex;
     align-items: center;
@@ -100,14 +104,15 @@ navbar li a:active{
 
 .wrapper {
     margin-top: 0px;
-    margin-bottom: 120px;
+    margin-bottom: 60px;
     position: relative;
     width: 400px;
     height: 440px;
    /* margin-top: 400px;
     margin-left: 350px;*/
-    background: transparent; 
-    border: 2px solid rgba(202, 163, 228, 0.5); 
+    background: transparent;
+    background-color: beige; 
+    border: 2px solid rgba(64, 23, 91, 0.5); 
     border-radius: 20px; 
     backdrop-filter: blur (20px); 
     box-shadow: 00 30px rgba(0, 0, 0, .5); justify-content: center; align-items: center;
@@ -812,7 +817,7 @@ footer .copyright{
 
 
 #element-img{
-    height: 270px;
+    height: 280px;
     width: 400px;
     border: 1px solid orange;
     align-items: center;
@@ -827,7 +832,7 @@ footer .copyright{
 
 #element-banner{
     background-color: bisque;
-    height: 50vh;
+    height: 30%;
     margin: 20px;
     display: flex;
     padding: 10px;
@@ -846,7 +851,11 @@ footer .copyright{
 #element-info{
     margin: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+.part1{
+    margin-left: 5px;
 }
 .element-dis{
     margin: 30px;
