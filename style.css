@@ -762,7 +762,7 @@ footer .copyright{
 .hov:hover .sub-menu-1{
     display: block;
     position: absolute;
-    background-color: rgb(242, 188, 241);
+    background-color: rgb(201, 248, 224);
     margin-top: 2px;
     margin-left: 0px;
     transition: 0.02s;
@@ -811,7 +811,7 @@ footer .copyright{
     position: absolute;
     margin-top: -30px;
     margin-left: 155px;
-    background-color:rgb(242, 188, 241) ;
+    background-color:rgb(201, 248, 224);
     transition: 0.02s;
 }
 
