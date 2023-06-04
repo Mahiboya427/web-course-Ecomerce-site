@@ -876,3 +876,44 @@ footer .copyright{
 .addcart{
     margin-left: 20px;
 }
+
+#cart-view{
+    background-color: rgb(141, 170, 194);
+    margin: 20px;
+    padding: 20px;}
+
+    #cart-view h1{
+        text-align: center;
+    }
+.course-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    border: 2px solid rgb(243, 243, 246);
+    padding: 5px;
+    margin: 10px;
+}
+
+
+.delete-section{
+    
+    margin: 20px;
+    background-color: rgb(213, 180, 104);
+    padding: 10px;
+    
+
+}
+.delete{
+    font-weight:bold;
+    padding: 2px;
+    border: 1px  solid blue;
+    margin: 5px;
+    
+    text-align: center;
+    align-items: center;
+}
+
+

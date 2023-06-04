@@ -67,5 +67,3 @@ const signInWithGoogle=()=>{
 google_login.addEventListener('click',signInWithGoogle);
 
 
-
-     

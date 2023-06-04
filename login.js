@@ -31,7 +31,7 @@ var login_email=document.getElementById("login-email");
 //var register_email=document.getElementById("register-email");
 var login_password=document.getElementById("login-password");
 //var register_password=document.getElementById("register-password");
-
+var user_info=document.getElementById("user")
 
 console.log(login_email.value,login_password.value);
 const wrapper = document.querySelector('.wrapper'); 
@@ -49,7 +49,10 @@ window.login=function (e) {
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        
         wrapper.classList.remove('active-popup'); 
+        console.log(user.email);
+        user_info.textContent=userCredential.user.email;
         alert("login sucessfull") ;
         
         // ...
@@ -59,7 +62,7 @@ window.login=function (e) {
         alert("login error"+err)
                 
     })
-    console.log(obj1);
+    //console.log(obj1);
 
 };
 

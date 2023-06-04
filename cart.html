@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>communication</title>
+    
+    <title>Document</title>
+    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
+
+
+    
     <section id="header">
         <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzs7d1nlxerknIa7Ajtp1dwrRknLGo-4oZ7A&usqp=CAU" class="logo" alt=""></a>
         <li class="hov"><a class="abc" href="course.html">Course</a>
+        
+        
             <div class="sub-menu-1">
                 <ul>
-                    <li class="hover-me"><a href="#">web development</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="web-dev.html">web development</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
                                 <li><a href="element1.html">HTML CSS</a></li>
@@ -27,7 +34,7 @@
                     
                     
                     </li>
-                    <li class="hover-me"><a href="#">data science</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="data-sci.html">data science</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
                                 <li><a href="element5.html">R programming</a></li>
@@ -37,7 +44,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="hover-me"><a href="#">software testing</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="software-eng.html">software testing</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
                                 <li><a href="element9.html">Java</a></li>
@@ -47,10 +54,9 @@
                             </ul>
                         </div>    
                     </li>
-                    <li class="hover-me"><a href="#">communication</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="communication.html">communication</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
-                                
                                 <li><a href="element13.html">Interactions</a></li>
                                 <li><a href="element14.html">Parts of speech</a></li>
                                 <li><a href="element15.html">verbal</a></li>
@@ -62,6 +68,7 @@
             </div>
         
         </li>
+        <p class="abc" id="user"></p>
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
@@ -72,96 +79,31 @@
         </div>
     </section>
 
-  
-    <section id="comm-banner">
-        
-        <div class="comm-explore">
-            <h1>COMMUNICATION</h1><BR></BR>
-            <h1>THINK BIG</h1>
-        <button class="explore-button">explore</button>
+    <div class="delete-section">
+        <form id="del-form" onsubmit="delete_course(event)">
+            <label for="">Remove Course</label>
+            <input id="courseid" type="text" placeholder="enter course-id">
+            <button class="delete" type="submit">Remove</button>
+        </form>
+    </div>
+    <section id="cart-view">
+        <h1><u>COURSE-CART</u> </h1><br>
+
+        <div class="course-card"></div>
         </div>
         
     </section>
 
 
-    <section id="product1" class="section-p1">
-        <h2>course</h2>
-        <p>summer term</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img src="https://www.revechat.com/wp-content/uploads/2021/05/Customer-interactions-1280x720.png" alt="">
-                <div class="des">
-                    <span>communication</span>
-                    <h5>interactions</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$567</h4>
-                </div>
-                <a href="element13.html"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcS0QsEXpXQxJyRa_rv4naZqEmSEAmwqTxblP_QCejVCzJN5D2z2WqkvkDcYwTy4YcBN" alt="">
-                <div class="des">
-                    <span>communication</span>
-                    <h5>parts of speech</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$567</h4>
-                </div>
-                <a href="element14.html"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="https://affluentenglish.com/wp-content/uploads/2022/04/Verbal-Communication.png" alt="">
-                <div class="des">
-                    <span>communication</span>
-                    <h5>verbal</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$567</h4>
-                </div>
-                <a href="element15.html"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-           
-            <div class="pro">
-                <img src="https://www.avanse.com/blogs/images/blogs-migration-169.jpg" alt="">
-                <div class="des">
-                    <span>communication</span>
-                    <h5>group disccusions</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>$567</h4>
-                </div>
-                <a href="element16.html"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-        </div>
 
-    </section>
 
 
     <section id="banner" class="section-m1">
         <h4>service</h4>
         <h2>23% discount off</h2>
         <button class="normal">explore more</button>
+
+       
     </section>
 
 
@@ -229,10 +171,12 @@
         </footer>
 
 
-    <script type="module" src="login.js"></script>
-        <script  src="script.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script type="text/javascript" src="https://cdn.evgnet.com/beacon/aethereusconsulting/education/scripts/evergage.min.js"></script>
+
+
+       
+    <script src="remove-course.js" type="module"></script>
+    <script src="element.js" type="module"></script>
+    
+    <script src="carts.js" type="module"></script>
 </body>
 </html>
