@@ -59,8 +59,9 @@ let courseid=document.getElementById("courseid");
                 deleteDoc(docRef)
                     .then(()=>{
                         console.log("deleted",x);
-                        alert(courseid.value+" "+"deleted please referesh");
+                        alert(courseid.value+" "+"deleted");
                         document.getElementById("del-form").reset();
+                        window.location.assign('./cart.html');
                     })
                 
             }
