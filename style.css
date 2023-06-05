@@ -461,7 +461,7 @@ navbar li a:active{
     width: 180px;
     text-align: center;
     padding: 20px 15px;
-    box-shadow: 20px 20px 34px rgb(206, 83, 83);
+    box-shadow: 3px 3px 3px rgb(168, 94, 94);
     border: 1px solid coral;
     border-radius: 4px;
     margin: 15px 0;  
@@ -469,7 +469,7 @@ navbar li a:active{
 }
 
 #feature .fe-box:hover{
-    box-shadow: 10px 10px 54px orangered;
+    box-shadow: 3px 3px 3px orangered;
 }
 #feature .fe-box h6{
     display: inline-block;
@@ -510,7 +510,7 @@ navbar li a:active{
     border: 1px solid gray;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 10px 10px 10px green;
+    box-shadow: 3px 3px 3px green;
     margin: 15px 0px;
     transition: 0.2s ease;
     position: relative;
@@ -522,7 +522,7 @@ navbar li a:active{
 }
 
 #product1 .pro:hover{
-    box-shadow: 20px 20px 30px rgb(6, 56, 6);
+    box-shadow: 5px 5px 5px rgb(6, 56, 6);
     
 }
 

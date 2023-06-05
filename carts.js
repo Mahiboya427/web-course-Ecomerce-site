@@ -57,6 +57,7 @@
                         <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br>
                         <spam class="docid" id="docid${i}"></spam> 
                         
+                        
             `   
             document.querySelector(".course-card").appendChild(newdiv)
             

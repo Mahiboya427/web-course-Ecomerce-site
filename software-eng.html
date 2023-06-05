@@ -87,7 +87,7 @@
         <h2>course</h2>
         <p>summer term</p>
         <div class="pro-container">
-            <div class="pro">
+            <div class="pro" id="p9">
                 <img src="https://artoftesting.com/wp-content/uploads/2019/12/Quality-Assurance.jpg" alt="">
                 <div class="des">
                     <span>software testing</span>
@@ -101,9 +101,8 @@
                     </div>
                     <h4>$567</h4>
                 </div>
-                <a href="element11.html"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
+            <div class="pro" id="p10">
                 <img src="https://contentstatic.techgig.com/photo/93000110/What-makes-Java-still-popular-among-developers.jpg" alt="">
                 <div class="des">
                     <span>software testing</span>
@@ -117,9 +116,8 @@
                     </div>
                     <h4>$567</h4>
                 </div>
-                <a href="element9.html"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
+            <div class="pro" id="p11">
                 <img src="https://ucarecdn.com/39483ff6-4269-400d-bca7-1dd059c31c02/" alt="">
                 <div class="des">
                     <span>software testing</span>
@@ -133,10 +131,9 @@
                     </div>
                     <h4>$567</h4>
                 </div>
-                <a href="element10.html"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
            
-            <div class="pro">
+            <div class="pro" id="p12">
                 <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/03/Automation-Testing-Tutorial.jpg" alt="">
                 <div class="des">
                     <span>software testing</span>
@@ -150,7 +147,6 @@
                     </div>
                     <h4>$567</h4>
                 </div>
-                <a href="element12.html"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
         </div>
 
@@ -227,67 +223,7 @@
         </div>
         </footer>
 
-
-    <script type="module" src="login.js"></script>
-    <script type="module">
-            
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-    import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-   
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
-      authDomain: "auth-courseofferings.firebaseapp.com",
-      projectId: "auth-courseofferings",
-      storageBucket: "auth-courseofferings.appspot.com",
-      messagingSenderId: "484839394488",
-      appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
-      measurementId: "G-PMQ4DGFSBZ"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
-
-    
-var username=document.getElementById("username");
-//var login_email=document.getElementById("login-email");
-var register_email=document.getElementById("register-email");
-//var login_password=document.getElementById("login-password");
-var register_password=document.getElementById("register-password");
-
-
-window.signup=function (e) {
-    e.preventDefault();
-    var obj={
-        username:username.value,
-        email:register_email.value,
-        password:register_password.value
-    
-    }
-
-    createUserWithEmailAndPassword(auth,obj.email,obj.password)
-        .then(function(success) {
-            alert("signup successfully")
-        })
-        .catch(function(err) {
-            alert("error"+err)
-            
-        })
-
-        console.log(obj);
-    
-        };
-
-
-        </script>
+        <script src="element9.js"></script>
         <script  src="script.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
