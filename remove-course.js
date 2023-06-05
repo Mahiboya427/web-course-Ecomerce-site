@@ -28,8 +28,10 @@
     //collection reference
     const colRef=collection(db,'courses')
     //get collection data
-    
-let courseid=document.getElementById("courseid");
+   
+
+
+    /*let courseid=document.getElementById("courseid");
     
     getDocs(colRef)
         .then((snapshot)=>{
@@ -74,14 +76,24 @@ let courseid=document.getElementById("courseid");
             console.log(err.massage);
         })
 
-
-
+ */     
+        window.delete_element=function(click_id){
+            
+            console.log(click_id);
+            const docRef=doc(db,'courses',click_id);
+            console.log("step1");
+                deleteDoc(docRef)
+                    .then(()=>{
+                        console.log("deleted");
+                        alert(click_id+" "+"deleted");
+                       // document.getElementById("del-form").reset();
+                        window.location.assign('./cart.html');
+                    })
+        }   
 
    
         
     
-
-
 
 
 

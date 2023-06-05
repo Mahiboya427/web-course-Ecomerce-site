@@ -28,22 +28,26 @@
     //collection reference
     const colRef=collection(db,'courses')
     //get collection data
-    
-
+    /*
+    const reply_click=(e)=>{
+        e.preventDefault();
+        console.log("hello");
+    }
+    */
+   
+  
     
     getDocs(colRef)
         .then((snapshot)=>{
-            
             let courses=[]   
-
             snapshot.docs.forEach((doc) => {
-               
-                courses.push({ ...doc.data(),doc_id:doc.id})
+            courses.push({ ...doc.data(),doc_id:doc.id})    
             });
             console.log(courses);
             for(let i = 0; i<courses.length;i++){
 //                console.log("hello");
               //  console.log(courses[i]);
+             
             let newdiv=document.createElement('div');
             newdiv.classList.add('card');
             
@@ -54,8 +58,8 @@
                         <label for="">course-heading:</label><u><spam id="course-heading${i}"></spam></u><br>
                         <label for="">course-rating:</label><u><spam id="course-rating${i}"></spam></u><br>
                         <label for="">course-price:</label><u><spam id="course-price${i}"></spam></u><br>
-                        <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br>
-                        <spam class="docid" id="docid${i}"></spam> 
+                        <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br> 
+                        <button class="remove" type="submit" onClick="delete_element(this.id,event)" id="${courses[i].doc_id}" >Delete Course</button>
                         
                         
             `   
@@ -69,7 +73,7 @@
             var course_rating=document.getElementById("course-rating"+i)
             var course_price=document.getElementById("course-price"+i)
             var course_duration=document.getElementById("course-duration"+i)
-            var docid=document.getElementById('docid'+i)
+           // var docid=document.getElementById('docid'+i)
             
 
 
@@ -80,16 +84,17 @@
             course_rating.textContent=courses[i].rating
             course_price.textContent=courses[i].price
             course_duration.textContent=courses[i].duration
-            docid.textContent=courses[i].doc_id
+           // docid.textContent=courses[i].doc_id
 
 
             
 
             
             }
+            
         })
         .catch((err)=>{
             console.log(err.massage);
         })
 
-
+        
