@@ -52,14 +52,18 @@
             newdiv.classList.add('card');
             
             newdiv.innerHTML= `  
+                        
+                        <img class="course-pic" id="course-pic${i}"  src="" alt=""><br><br>
+                        <div class="cd-part1">
                         <label for="">course-id:</label><u><spam id="course-id${i}"></spam></u><br>
                         <label for="">course-title:</label><u><spam id="course-title${i}"></spam></u><br>
                         <label for="">course-category:</label><u><spam id="course-category${i}"></spam></u><br>
-                        <label for="">course-heading:</label><u><spam id="course-heading${i}"></spam></u><br>
-                        <label for="">course-rating:</label><u><spam id="course-rating${i}"></spam></u><br>
+                       <!-- <label for="">course-heading:</label><u><spam id="course-heading${i}"></spam></u><br>
+                        <label for="">course-rating:</label><u><spam id="course-rating${i}"></spam></u><br> -->
                         <label for="">course-price:</label><u><spam id="course-price${i}"></spam></u><br>
                         <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br> 
                         <button class="remove" type="submit" onClick="delete_element(this.id,event)" id="${courses[i].doc_id}" >Delete Course</button>
+                        </div>
                         
                         
             `   
@@ -69,10 +73,11 @@
             var course_id=document.getElementById("course-id"+i)
             var course_title=document.getElementById("course-title"+i)
             var course_category=document.getElementById("course-category"+i)
-            var course_heading=document.getElementById("course-heading"+i)
-            var course_rating=document.getElementById("course-rating"+i)
+           // var course_heading=document.getElementById("course-heading"+i)
+           // var course_rating=document.getElementById("course-rating"+i)
             var course_price=document.getElementById("course-price"+i)
             var course_duration=document.getElementById("course-duration"+i)
+            var course_pic=document.getElementById("course-pic"+i)
            // var docid=document.getElementById('docid'+i)
             
 
@@ -80,10 +85,11 @@
             course_id.textContent=courses[i].id
             course_title.textContent=courses[i].title
             course_category.textContent=courses[i].category
-            course_heading.textContent=courses[i].heading
-            course_rating.textContent=courses[i].rating
+           // course_heading.textContent=courses[i].heading
+           // course_rating.textContent=courses[i].rating
             course_price.textContent=courses[i].price
             course_duration.textContent=courses[i].duration
+            course_pic.src=courses[i].pic
            // docid.textContent=courses[i].doc_id
 
 

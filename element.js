@@ -27,7 +27,7 @@
     
     const db=getFirestore();
     const colRef=collection(db,'courses')
-
+  
   
     var element_title=document.getElementById("element-title").textContent;
     var element_category=document.getElementById("element-category").textContent;
@@ -36,6 +36,9 @@
     var element_price=document.getElementById("element-price").textContent;
     var element_duration=document.getElementById("element-duration").textContent;
     var element_id=document.getElementById("EL").textContent;
+    
+    var element_pic=document.getElementById("element-pic").src;
+    console.log(element_pic);
     
     
     var addtocart=document.querySelector('.addcart');
@@ -88,7 +91,7 @@ const cart=()=>{
         id:element_id,title:element_title,
         category:element_category,heading:element_heading,
         rating:element_rating,price:element_price,
-        duration:element_duration
+        duration:element_duration,pic:element_pic
         })
         .then(()=>{
              console.log("hello");})

@@ -885,18 +885,85 @@ footer .copyright{
     #cart-view h1{
         text-align: center;
     }
-.course-card{
+
+
+
+.price-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 42%; 
+    margin: 5px;
+    margin-bottom: 20px;
+    background-color: cadetblue;
+    padding: 2px;
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }  
+
+  .payment-form{
+    font-family: arial, sans-serif;
+    text-align: center;
+    margin: 5px;
+    background-color:cadetblue;
+    width: 42%;
+  }
+
+  .payment-form input{
+    width: 98%;
+    height: 30px;
+    margin: 3px;
+
+  }
+  #radio{
+    
+    font-weight: 10;
+  }
+
+ .payment{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+ }
+
+ .course-card{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card{
     border: 2px solid rgb(243, 243, 246);
     padding: 5px;
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+ 
 }
+ 
 
+
+ .course-pic{
+    align-items: center;
+    border: 2px solid salmon;
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    
+ }
+
+ 
 .delete-section{
     
     margin: 20px;
@@ -905,23 +972,14 @@ footer .copyright{
     
 
 }
-.delete{
-    font-weight:bold;
-    padding: 2px;
-    border: 2px  solid blue;
-    margin: 5px;
-   
-    text-align: center;
-    align-items: center;
-}
+
 
 .remove{
     font-weight:bold;
     padding: 5px;
     border: 2px  solid blue;
-    margin: 5px;
-    margin-left: 200px;
+    margin: 7px;
+    margin-left: 70px;
     text-align: center;
     align-items: center;
 }
-
