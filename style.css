@@ -891,7 +891,7 @@ footer .copyright{
 .price-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 42%; 
+    width: 100%; 
     margin: 5px;
     margin-bottom: 20px;
     background-color: cadetblue;
@@ -913,7 +913,7 @@ td, th {
     text-align: center;
     margin: 5px;
     background-color:cadetblue;
-    width: 42%;
+    width: 100%;
   }
 
   .payment-form input{
@@ -982,4 +982,40 @@ td, th {
     margin-left: 70px;
     text-align: center;
     align-items: center;
+    border-radius: 10px;
+}
+
+.segment{
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    
+    align-items: center;
+}
+
+.segment2{
+    height: 50%;
+    width: 45%;
+}
+
+.segement1{
+    margin-top: 100px;
+    width: 700px;
+}
+
+.payment-option{
+    margin: 10px;
+    width: 98%;
+    height: 30px;
+    
+}
+
+.payment-page{
+    height: 30px;
+   width: 150px;
+    margin:0px 5px;
+    margin-left: 1000px;
+    background-color: darkblue;
+    color: #fff;
+    border-radius: 5px;
 }
