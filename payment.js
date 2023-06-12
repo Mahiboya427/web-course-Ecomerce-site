@@ -63,3 +63,33 @@
         })
 
         
+
+        const cart=()=>{  
+            console.log("cart fun runnig");
+            console.log(temp);
+            if(temp!=0){
+            addDoc(colRef,{
+                id:element_id,title:element_title,
+                category:element_category,heading:element_heading,
+                rating:element_rating,price:element_price,
+                duration:element_duration,pic:element_pic
+                })
+                .then(()=>{
+                     console.log("hello");})
+           
+                    console.log("element-id:",element_id,";","element-title:",element_title,";",
+                    "element_category:",element_category,";","element_heading:",element_heading,";" ,
+                    "element_rating:",element_rating,";","element_price:",element_price,";",
+                    "element_duration:",element_duration);
+                  
+                    alert(element_title+" "+"added to the cart");
+                    temp=0;
+                   // window.location.reload();   
+                }
+                else{alert(element_title+" "+"ALREADY in the cart");}
+        
+                }  
+         
+                
+        addtocart.addEventListener('click',cart);
+        
