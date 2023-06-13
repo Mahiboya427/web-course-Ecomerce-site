@@ -19,7 +19,9 @@ loginLink.addEventListener('click', () => {
 
 
 btnpopup.addEventListener('click', () => { 
+    
     wrapper.classList.add('active-popup'); 
+    
 });
 
 

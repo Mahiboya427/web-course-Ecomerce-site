@@ -25,6 +25,7 @@
     
     const auth = getAuth();
 
+   
     
 //var username=document.getElementById("username");
 var login_email=document.getElementById("login-email");
@@ -44,15 +45,16 @@ window.login=function (e) {
     };
     console.log(obj1);
 
-
+    
     signInWithEmailAndPassword(auth,obj1.email,obj1.password)
     .then((userCredential) => {
         // Signed in 
-        const user = userCredential.user;
+       const user = userCredential.user;
         
         wrapper.classList.remove('active-popup'); 
         console.log(user.email);
         user_info.textContent=userCredential.user.email;
+        
         alert("login sucessfull") ;
         
         // ...
@@ -63,10 +65,9 @@ window.login=function (e) {
                 
     })
     //console.log(obj1);
+    
 
 };
-
-
 
 
      

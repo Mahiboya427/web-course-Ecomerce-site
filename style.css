@@ -14,15 +14,21 @@ body{
     align-items: center;
     justify-content:space-around;
     padding: 10px 70px;
-    background-color: rgb(109, 203, 150);
+    background-color:#F0F8FF;
     box-shadow: 0px 5px 10px rgb(193, 239, 210);
     z-index: 999;
     position: sticky;
      top: 0;
      left: 0;
+    font-weight: bolder;
+    margin-bottom: 5px;
 }
 .logo{
-    height: 30px;
+    background-repeat: no-repeat;
+    image-resolution: 500px;
+    border: 0px;
+    height: 50px;
+    width: 100px;
 }
 .section-p1{
     padding:40px 80px;
@@ -71,12 +77,12 @@ navbar li a:active{
     width: 130px;
     height: 50px;
     background: transparent;
-    border: 2px solid #fff;
+    border: 2px solid #c6d5e1;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.1em;
-    color: #fff;
+    color: #73e38b;
     font-weight: 500;
     margin-left: 40px;
     transition: .5s;
@@ -98,6 +104,9 @@ navbar li a:active{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5px;
+    
+    
     
 
 }
@@ -301,6 +310,9 @@ navbar li a:active{
     margin: 25px 0 10px ;
 }
 
+#logout-button{
+    display: none;
+}
 
 .login-register p a{
     color: blueviolet;

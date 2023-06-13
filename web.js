@@ -1,4 +1,5 @@
 
+
 const p1=()=>{
     console.log("p1 running");
     window.location.assign('./element1.html');

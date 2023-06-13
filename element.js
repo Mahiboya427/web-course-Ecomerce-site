@@ -29,6 +29,11 @@
     const colRef=collection(db,'courses')
   
   
+
+
+
+
+
     var element_title=document.getElementById("element-title").textContent;
     var element_category=document.getElementById("element-category").textContent;
     var element_heading=document.getElementById("element-heading").textContent;
