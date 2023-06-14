@@ -1033,3 +1033,47 @@ td, th {
     color: #fff;
     border-radius: 5px;
 }
+
+.cod{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightblue;
+    height: 40px;
+    margin: 5px;
+    font-size: x-large;
+}
+
+.radio{
+    height: 30px;
+    width: 20px;
+    margin-right: 10px;
+    font-size:xx-large ;
+}
+
+
+.final{
+    background-color: darkblue;
+    height: 30%;
+    width: 80%;
+    color: gold;
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 5px;
+}
+
+.gohome{
+    margin: 5px;
+    margin-left: 32px;
+    border-color: wheat;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+    color: rebeccapurple;
+}

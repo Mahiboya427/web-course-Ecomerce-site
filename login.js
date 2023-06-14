@@ -5,6 +5,9 @@
 
     import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
    
+    
+    import { getFirestore,collection,getDocs,addDoc,deleteDoc,doc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -25,14 +28,14 @@
     
     const auth = getAuth();
 
-   
+
     
 //var username=document.getElementById("username");
 var login_email=document.getElementById("login-email");
 //var register_email=document.getElementById("register-email");
 var login_password=document.getElementById("login-password");
 //var register_password=document.getElementById("register-password");
-var user_info=document.getElementById("user")
+
 
 console.log(login_email.value,login_password.value);
 const wrapper = document.querySelector('.wrapper'); 
@@ -53,10 +56,9 @@ window.login=function (e) {
         
         wrapper.classList.remove('active-popup'); 
         console.log(user.email);
-        user_info.textContent=userCredential.user.email;
-        
         alert("login sucessfull") ;
         
+
         // ...
       })
    
