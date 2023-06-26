@@ -33,6 +33,7 @@ else  {
   console.log(localStorage.getItem('currentuser'));
   document.getElementById("login-button").style.display='none';
   document.getElementById("logout-button").style.display='block';
+   alert('Go to homepage and Login');
 }
 /*    
 auth.onAuthStateChanged(user => {
