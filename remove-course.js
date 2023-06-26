@@ -30,6 +30,7 @@
     //get collection data
    
 
+    console.log("remove element");
 
     /*let courseid=document.getElementById("courseid");
     
@@ -77,10 +78,19 @@
         })
 
  */     
+           
         window.delete_element=function(click_id){
+            let arrayobj=JSON.parse(localStorage.getItem(localStorage.getItem('currentuser')));
+            console.log(arrayobj);
+            console.log("loop",arrayobj.courseitems[0]);
             
+            arrayobj.courseitems.splice(arrayobj.courseitems.indexOf(click_id),1);
             console.log(click_id);
-            const docRef=doc(db,'courses',click_id);
+            
+
+
+    /*  //removing doc from firebase          
+      const docRef=doc(db,'courses',click_id);
             console.log("step1");
                 deleteDoc(docRef)
                     .then(()=>{
@@ -88,10 +98,14 @@
                         alert(click_id+" "+"deleted");
                        // document.getElementById("del-form").reset();
                         window.location.assign('./cart.html');
-                    })
-        }   
+                    })*/
+                    console.log("final",arrayobj);
+                    let officialuser=localStorage.getItem('currentuser');
+                    localStorage.setItem(officialuser,JSON.stringify(arrayobj));
+                    console.log(localStorage);
+                    window.location.assign('./cart.html');
+                  }   
 
-   
         
     
 

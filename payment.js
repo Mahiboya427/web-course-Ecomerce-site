@@ -4,7 +4,7 @@
 
 //    import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
    
-    import { getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+    import { getFirestore,collection,getDocs,addDoc} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,62 +34,79 @@
         console.log("hello");
     }
     */
-   
-  var price=document.getElementById('price');
     
+    let contactid=localStorage.getItem('currentuser');
+    console.log(contactid); 
+
+    let items=JSON.parse(localStorage.getItem(contactid));
+    console.log(items.courseitems);
+    let itemsstring=JSON.stringify(items.courseitems);
+    let finalprice=0;
     getDocs(colRef)
         .then((snapshot)=>{
             let courses=[]   
             snapshot.docs.forEach((doc) => {
             courses.push({ ...doc.data(),doc_id:doc.id})    
             });
-            console.log(courses);
-            let total=0;
+            console.log("all courses",courses);
             for(let i = 0; i<courses.length;i++){
-//                console.log("hello");
-                console.log(courses[i]);
+
+                for(let l=0;l<items.courseitems.length;l++){
+                     console.log(items.courseitems[l]);
+                     if(items.courseitems[l]==courses[i].id){
+                         console.log(courses[i]);
+                    
+
                 
-                console.log(Number(courses[i].price.slice(1,)));
-                let sum=Number(courses[i].price.slice(1,));
-                total=Number(total+sum);
+             
+           finalprice=finalprice+Number(courses[i].price.slice(1,));
+        }}
+            
+            
             
             }
-            console.log("total",total);
-            price.textContent="$"+total;
-            document.getElementById('total-price').textContent="$"+(total+40)
+            console.log(finalprice);
+            document.getElementById('price').textContent='₹ '+finalprice;
+            document.getElementById('total-price').textContent='₹ '+(finalprice+40);
         })
         .catch((err)=>{
             console.log(err.massage);
         })
 
         
+   const col=collection(db,'orders')
 
-        const cart=()=>{  
-            console.log("cart fun runnig");
-            console.log(temp);
-            if(temp!=0){
-            addDoc(colRef,{
-                id:element_id,title:element_title,
-                category:element_category,heading:element_heading,
-                rating:element_rating,price:element_price,
-                duration:element_duration,pic:element_pic
-                })
-                .then(()=>{
-                     console.log("hello");})
-           
-                    console.log("element-id:",element_id,";","element-title:",element_title,";",
-                    "element_category:",element_category,";","element_heading:",element_heading,";" ,
-                    "element_rating:",element_rating,";","element_price:",element_price,";",
-                    "element_duration:",element_duration);
-                  
-                    alert(element_title+" "+"added to the cart");
-                    temp=0;
-                   // window.location.reload();   
-                }
-                else{alert(element_title+" "+"ALREADY in the cart");}
+const addorder=()=>{
+    
+  addDoc(col,{
+        user:localStorage.getItem('currentuser'),
+        email:document.getElementById('email').value,
+        firstname:document.getElementById('first-name').value,
+        lastname:document.getElementById('last-name').value,
+        address:document.getElementById('address').value,
+        landmark:document.getElementById('landmark').value,
+        zipcode:document.getElementById('zip-code').value,
+        city:document.getElementById('city').value,
+        state:document.getElementById('state').value,
+        country:document.getElementById('country').value,
+        phone:document.getElementById('phone').value,
+        amount:document.getElementById('total-price').innerText,
+        EL:itemsstring
+        })
+        .then(()=>{
+            console.log(
+                col
+            );
+             console.log("hello");
+             window.location.assign('./final.html');
+            
+            })
+
+        console.log("running addorders");
+       console.log("helo",document.getElementById('email').value,document.getElementById('total-price').innerText,itemsstring);
+       
         
-                }  
-         
-                
-        addtocart.addEventListener('click',cart);
+    }
         
+const finalend=document.getElementById('end-flow');
+finalend.addEventListener('click',addorder);

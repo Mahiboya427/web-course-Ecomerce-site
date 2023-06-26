@@ -12,7 +12,7 @@
 <body>
     <section id="header">
         <a href="#"><img src="https://banner2.cleanpng.com/20180817/wac/kisspng-e-learning-logo-industry-educational-technology-br-offline-is-the-new-online-unleash-the-power-of-an-5b76826b01f469.279560991534493291008.jpg" class="logo" alt=""></a>
-        <li class="hov"><a class="abc" href="">Course</a>
+        <li class="hov"><a class="abc" href="#">Course</a>
         
         
             <div class="sub-menu-1">
@@ -68,7 +68,7 @@
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="">About</a></li>
-                <a href="cart.html" class="cart"><i class="fal fa-shopping-cart cart"></i></a>
+                <a href="cart.html" class="cart" id="cart"><i class="fal fa-shopping-cart cart"></i></a>
                 <li><button class="login-button" id="login-button">Login</button></li>
                 <li><button class="login-button" id="logout-button">Logout</button></li>
                 
@@ -385,6 +385,8 @@ window.signup=function (e) {
 
 
             alert("signup successfully")
+            window.location.assign('./index.html');
+            
         })
         .catch(function(err) {
             alert("error"+err)
@@ -394,22 +396,29 @@ window.signup=function (e) {
         console.log(obj);
     
         };
-
+    
+        
     
     auth.onAuthStateChanged(user => {
         console.log("running");
-        console.log(user.email);
+        //console.log(user.email);
         if(user){
             document.getElementById("login-button").style.display='none';
             document.getElementById("logout-button").style.display='block';
-            
+            //console.log(auth.currentUser);
             document.title = "PROFILE PAGE";
             }
+        else{
+            localStorage.setItem('currentuser',"");
+        }
         })   
     
+console.log("cuurentuser=",localStorage.getItem('currentuser'));
+
     
 function logout(){
     auth.signOut();
+    localStorage.setItem('currentuser',"");
     document.getElementById("login-button").style.display='block';
     document.getElementById("logout-button").style.display='none';
     window.location.assign('./index.html');

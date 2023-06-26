@@ -1,8 +1,8 @@
-   
+
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
-//    import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+    import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
    
     import { getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
    
@@ -34,19 +34,28 @@
         console.log("hello");
     }
     */
-   
-  
-    
+    let contactid=localStorage.getItem('currentuser');
+    console.log(contactid); 
+
+    let items=JSON.parse(localStorage.getItem(contactid));
+    console.log(items.courseitems);
+        
     getDocs(colRef)
         .then((snapshot)=>{
             let courses=[]   
             snapshot.docs.forEach((doc) => {
             courses.push({ ...doc.data(),doc_id:doc.id})    
             });
-            console.log(courses);
+            console.log("all courses",courses);
             for(let i = 0; i<courses.length;i++){
-//                console.log("hello");
-              //  console.log(courses[i]);
+
+                for(let l=0;l<items.courseitems.length;l++){
+                     console.log(items.courseitems[l]);
+                     if(items.courseitems[l]==courses[i].id){
+                         console.log(courses[i]);
+                    
+
+                
              
             let newdiv=document.createElement('div');
             newdiv.classList.add('card');
@@ -62,7 +71,7 @@
                         <label for="">course-rating:</label><u><spam id="course-rating${i}"></spam></u><br> -->
                         <label for="">course-price:</label><u><spam id="course-price${i}"></spam></u><br>
                         <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br> 
-                        <button class="remove" type="submit" onClick="delete_element(this.id,event)" id="${courses[i].doc_id}" >Delete Course</button>
+                        <button class="remove" type="submit" onClick="delete_element(this.id,event)" id="${courses[i].id}" >Delete Course</button>
                         </div>
                         
                         
@@ -91,10 +100,9 @@
             course_duration.textContent=courses[i].duration
             course_pic.src=courses[i].pic
            // docid.textContent=courses[i].doc_id
-
-
+                        
+           }}
             
-
             
             }
             

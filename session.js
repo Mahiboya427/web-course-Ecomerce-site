@@ -21,17 +21,30 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 
-    
+
+if(localStorage.getItem('currentuser')==''){
+  console.log("user empty");
+  document.getElementById("login-button").style.display='block';
+  document.getElementById("logout-button").style.display='none';
+  
+}
+  
+else  {
+  console.log(localStorage.getItem('currentuser'));
+  document.getElementById("login-button").style.display='none';
+  document.getElementById("logout-button").style.display='block';
+}
+/*    
 auth.onAuthStateChanged(user => {
-    console.log("running");
-    console.log(user.email);
+    console.log("session running");
+    console.log("session",user.email);
     if(user){
         document.getElementById("login-button").style.display='none';
         document.getElementById("logout-button").style.display='block';
         }
     })   
 
-
+*/
 function logout(){
 auth.signOut();
 document.getElementById("login-button").style.display='block';
@@ -41,4 +54,8 @@ window.location.assign('./index.html');
 }
 document.getElementById("logout-button").addEventListener('click',logout);
 
+const assignhome=()=>{
+  window.location.assign('./index.html');
+}
+document.getElementById("login-button").addEventListener('click',assignhome)
 

@@ -48,7 +48,6 @@ window.login=function (e) {
     };
     console.log(obj1);
 
-    
     signInWithEmailAndPassword(auth,obj1.email,obj1.password)
     .then((userCredential) => {
         // Signed in 
@@ -56,8 +55,13 @@ window.login=function (e) {
         
         wrapper.classList.remove('active-popup'); 
         console.log(user.email);
-        alert("login sucessfull") ;
+        localStorage.setItem('currentuser',user.email);
+        console.log("cuurentuser=",localStorage.getItem('currentuser'));
         
+        alert("login sucessfull") ;
+        document.getElementById("login-button").style.display='none';
+        document.getElementById("logout-button").style.display='block';
+            
 
         // ...
       })

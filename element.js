@@ -1,11 +1,12 @@
 
+
  
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
-//    import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+   import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
    
-    import { getFirestore,collection,getDocs,addDoc,deleteDoc,doc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+    import { getFirestore,collection,getDocs,addDoc,deleteDoc,doc,setDoc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,13 +27,8 @@
     const app = initializeApp(firebaseConfig);
     
     const db=getFirestore();
-    const colRef=collection(db,'courses')
-  
-  
-
-
-
-
+   
+ 
 
     var element_title=document.getElementById("element-title").textContent;
     var element_category=document.getElementById("element-category").textContent;
@@ -43,34 +39,74 @@
     var element_id=document.getElementById("EL").textContent;
     
     var element_pic=document.getElementById("element-pic").src;
-    console.log(element_pic);
-    
-    
-    var addtocart=document.querySelector('.addcart');
-    
+   // console.log(element_pic);
+        var addtocart=document.querySelector('.addcart');
 
+console.log(localStorage);
+const auth = getAuth();
+auth.onAuthStateChanged(user => {
+//console.log("session running");
+console.log("element.js",user.email);
+    if(user){
+        let demo=1;
+         for (var i = 0; i < localStorage.length; i++){
+               // console.log("loop",localStorage.key(i));  //loop work checking
+                if(localStorage.key(i)==user.email){
+                    console.log("email match");
+                    demo=0;
+                }
+                /*else{
+                    let customer={
+                        courseitems:[]
+                     }
 
+                localStorage.setItem(user.email, JSON.stringify(customer));
+                console.log("created");
+                    }          
+                */
+             } 
+            console.log("demo",demo);   
+            if(demo!=0){
+                let customer={
+                    courseitems:[]
+                     }
 
-      
+                localStorage.setItem(user.email, JSON.stringify(customer));
+                
+            }
+            else
+                console.log("go to home page and register");
+               
+        }
+         localStorage.setItem('currentuser',user.email);
+        
+        
+        }
+    )
 
-//var hello=document.getElementById("hello").value="hello"
-var temp=1;
+//flag for firebase
+//var temp=1;
+
   //get collection data
- 
-    
-console.log(temp);
+  const colRef=collection(db,'courses');   
   
+//console.log(temp);
+
+
+
+//check for duplicate from fire basedata 
+/*
 getDocs(colRef)
 .then((snapshot)=>{
-  console.log(snapshot.docs);
+ // console.log(snapshot.docs);
   let docid=[]  
   snapshot.docs.forEach((doc) => {
          // console.log(doc.data().id);
           docid.push(doc.data().id)});
-      console.log(docid);
+      //console.log(docid);
      
           for(let i=0;i<docid.length;i++){
-              console.log(element_id,docid[i]);
+             // console.log(element_id,docid[i]);
               if(element_id==docid[i]){
                   temp=0;   
                        
@@ -85,14 +121,43 @@ getDocs(colRef)
 .catch((err)=>{
     console.log(err.massage );
 })
+*/
 
-
-
+//add to cart
 const cart=()=>{  
+
+   //console.log("currentuser",localStorage.currentuser);
+    let currentuser=localStorage.getItem('currentuser');
+    console.log("currentuser",currentuser);
+    let check=JSON.parse(localStorage.getItem(currentuser));
+    console.log("check",check);
+    let save=1;
+    for(let k=0;k<check.courseitems.length;k++){
+        console.log("k value",check.courseitems[k]);
+        if(check.courseitems[k]==element_id){
+            console.log("matched",element_id);
+            save=0;
+        }
+        else
+            console.log("matched not found",element_id);
+    }
+    if(save!=0){
+        let finalobj=JSON.parse(localStorage.getItem(currentuser));
+        console.log("finalobj",finalobj);
+        finalobj.courseitems.push(element_id);
+        localStorage.setItem(currentuser,JSON.stringify(finalobj));
+        alert(element_title+" "+"Added in the cart");
+    }
+    else
+        {alert(element_title+" "+"ALREADY in the cart");}
+
+    
+    //add carts using firebase
+    /*    
     console.log("cart fun runnig");
     console.log(temp);
     if(temp!=0){
-    addDoc(colRef,{
+         addDoc(colRef,{
         id:element_id,title:element_title,
         category:element_category,heading:element_heading,
         rating:element_rating,price:element_price,
@@ -111,7 +176,7 @@ const cart=()=>{
            // window.location.reload();   
         }
         else{alert(element_title+" "+"ALREADY in the cart");}
-
+        */
         }  
  
         
