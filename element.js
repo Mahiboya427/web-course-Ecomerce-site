@@ -32,60 +32,50 @@ const firebaseConfig = {
    
  
 
-    document.addEventListener('DOMContentLoaded', () => {
-        var element_title = document.getElementById("element-title")?.textContent || "Default Title";
-        var element_category = document.getElementById("element-category")?.textContent || "Default Category";
-        var element_heading = document.getElementById("element-heading")?.textContent || "Default Heading";
-        var element_rating = document.getElementById("element-rating")?.textContent || "Default Rating";
-        var element_price = document.getElementById("element-price")?.textContent || "Default Price";
-        var element_duration = document.getElementById("element-duration")?.textContent || "Default Duration";
-        var element_id = document.getElementById("EL")?.textContent || "Default ID";
-        var element_pic = document.getElementById("element-pic")?.src || "Default Pic URL";
-      });
+   
+        var element_title = document.getElementById("element-title")?.textContent
+        var element_category = document.getElementById("element-category")?.textContent 
+        var element_heading = document.getElementById("element-heading")?.textContent 
+        var element_rating = document.getElementById("element-rating")?.textContent 
+        var element_price = document.getElementById("element-price")?.textContent 
+        var element_duration = document.getElementById("element-duration")?.textContent 
+        var element_id = document.getElementById("EL")?.textContent 
+        var element_pic = document.getElementById("element-pic")?.src 
+    
       
         var addtocart=document.querySelector('.addcart');
 
 console.log(localStorage);
 const auth = getAuth();
+console.log(auth);
 auth.onAuthStateChanged(user => {
-//console.log("session running");
-console.log("element.js",user.email);
-    if(user){
-        let demo=1;
-         for (var i = 0; i < localStorage.length; i++){
-               // console.log("loop",localStorage.key(i));  //loop work checking
-                if(localStorage.key(i)==user.email){
-                    console.log("email match");
-                    demo=0;
-                }
-                /*else{
-                    let customer={
-                        courseitems:[]
-                     }
+  console.log("Session running", user);
+  
+  if (user) {
+      const email = user.email;
+      console.log("User email:", email);
 
-                localStorage.setItem(user.email, JSON.stringify(customer));
-                console.log("created");
-                    }          
-                */
-             } 
-            console.log("demo",demo);   
-            if(demo!=0){
-                let customer={
-                    courseitems:[]
-                     }
+      // Check if email already exists in localStorage
+      let existingCustomer = localStorage.getItem(email);
 
-                localStorage.setItem(user.email, JSON.stringify(customer));
-                
-            }
-            else
-                console.log("go to home page and register");
-               
-        }
-         localStorage.setItem('currentuser',user.email);
-        
-        
-        }
-    )
+      if (existingCustomer) {
+          console.log("Email match found in localStorage");
+      } else {
+          // Create a new customer object if it doesn't exist
+          console.log("No match found. Creating a new customer.");
+          const customer = {
+              courseitems: []
+          };
+          localStorage.setItem(email, JSON.stringify(customer));
+      }
+
+      // Always set the current user in localStorage
+      localStorage.setItem('currentuser', email);
+      console.log("Current user set in localStorage:", email);
+  } else {
+      console.log("User is not logged in.");
+  }
+});
 
 //flag for firebase
 //var temp=1;
