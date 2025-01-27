@@ -13,15 +13,17 @@
   
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
-      authDomain: "auth-courseofferings.firebaseapp.com",
-      projectId: "auth-courseofferings",
-      storageBucket: "auth-courseofferings.appspot.com",
-      messagingSenderId: "484839394488",
-      appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
-      measurementId: "G-PMQ4DGFSBZ"
-    };
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
+    authDomain: "auth-courseofferings.firebaseapp.com",
+    databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "auth-courseofferings",
+    storageBucket: "auth-courseofferings.firebasestorage.app",
+    messagingSenderId: "484839394488",
+    appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
+    measurementId: "G-PMQ4DGFSBZ"
+  };
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -30,16 +32,17 @@
    
  
 
-    var element_title=document.getElementById("element-title").textContent;
-    var element_category=document.getElementById("element-category").textContent;
-    var element_heading=document.getElementById("element-heading").textContent;
-    var element_rating=document.getElementById("element-rating").textContent;
-    var element_price=document.getElementById("element-price").textContent;
-    var element_duration=document.getElementById("element-duration").textContent;
-    var element_id=document.getElementById("EL").textContent;
-    
-    var element_pic=document.getElementById("element-pic").src;
-   // console.log(element_pic);
+    document.addEventListener('DOMContentLoaded', () => {
+        var element_title = document.getElementById("element-title")?.textContent || "Default Title";
+        var element_category = document.getElementById("element-category")?.textContent || "Default Category";
+        var element_heading = document.getElementById("element-heading")?.textContent || "Default Heading";
+        var element_rating = document.getElementById("element-rating")?.textContent || "Default Rating";
+        var element_price = document.getElementById("element-price")?.textContent || "Default Price";
+        var element_duration = document.getElementById("element-duration")?.textContent || "Default Duration";
+        var element_id = document.getElementById("EL")?.textContent || "Default ID";
+        var element_pic = document.getElementById("element-pic")?.src || "Default Pic URL";
+      });
+      
         var addtocart=document.querySelector('.addcart');
 
 console.log(localStorage);
@@ -184,37 +187,46 @@ addtocart.addEventListener('click',cart);
 //
 /*
     */
-
-const p1=()=>{
-    console.log("p1 running");
-    window.location.assign('./element1.html');
-}
-document.getElementById('p1').addEventListener('click',p1);
-
-
-const p2=()=>{
-    console.log("p2 running");
-    window.location.assign('./element2.html');
-}
-document.getElementById('p2').addEventListener('click',p2);
-
-
-const p3=()=>{
-    console.log("p3 running");
-    window.location.assign('./element3.html');
-}
-document.getElementById('p3').addEventListener('click',p3);
-
-
-const p4=()=>{
-    console.log("p4 running");
-    window.location.assign('./element4.html');
-}
-document.getElementById('p4').addEventListener('click',p4);
-
-
-const p5=()=>{
-    console.log("p5 running");
-    window.location.assign('./element5.html');
-}
-document.getElementById('p5').addEventListener('click',p5);
+document.addEventListener('DOMContentLoaded', () => {
+    const p1 = document.getElementById('p1');
+    const p2 = document.getElementById('p2');
+    const p3 = document.getElementById('p3');
+    const p4 = document.getElementById('p4');
+    const p5 = document.getElementById('p5');
+  
+    if (p1) {
+      p1.addEventListener('click', () => {
+        console.log('p1 running');
+        window.location.assign('./element1.html');
+      });
+    }
+  
+    if (p2) {
+      p2.addEventListener('click', () => {
+        console.log('p2 running');
+        window.location.assign('./element2.html');
+      });
+    }
+  
+    if (p3) {
+      p3.addEventListener('click', () => {
+        console.log('p3 running');
+        window.location.assign('./element3.html');
+      });
+    }
+  
+    if (p4) {
+      p4.addEventListener('click', () => {
+        console.log('p4 running');
+        window.location.assign('./element4.html');
+      });
+    }
+  
+    if (p5) {
+      p5.addEventListener('click', () => {
+        console.log('p5 running');
+        window.location.assign('./element5.html');
+      });
+    }
+  });
+  
