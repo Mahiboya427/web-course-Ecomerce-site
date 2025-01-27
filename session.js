@@ -30,7 +30,7 @@ if (!currentUser || currentUser.trim() === '') {
     console.log("User is empty or not logged in.");
     document.getElementById("login-button").style.display = 'block';
     document.getElementById("logout-button").style.display = 'none';
-    alert('Go to homepage and Login');
+   // alert('Go to homepage and Login');
 } else {
     // If a user is logged in, hide login button and show logout button
     console.log("Logged in user:", currentUser);
