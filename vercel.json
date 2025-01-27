@@ -1,0 +1,21 @@
+{
+    "redirects": [
+      { "source": "/home", "destination": "/index.html", "permanent": true },
+      { "source": "/cart", "destination": "/cart.html", "permanent": true },
+      { "source": "/communication", "destination": "/communication.html", "permanent": true },
+      { "source": "/web-dev", "destination": "/web-dev.html", "permanent": true },
+      { "source": "/product1", "destination": "/element1.html", "permanent": true },
+      { "source": "/product2", "destination": "/element2.html", "permanent": true },
+      { "source": "/product3", "destination": "/element3.html", "permanent": true },
+      { "source": "/software-eng", "destination": "/software-eng.html", "permanent": true },
+      { "source": "/product4", "destination": "/element4.html", "permanent": true },
+      { "source": "/product5", "destination": "/element5.html", "permanent": true },
+      { "source": "/product6", "destination": "/element6.html", "permanent": true },
+      { "source": "/product7", "destination": "/element7.html", "permanent": true },
+      { "source": "/product8", "destination": "/element8.html", "permanent": true },
+      { "source": "/product9", "destination": "/element9.html", "permanent": true },
+      { "source": "/web-dev", "destination": "/web-dev.html", "permanent": true },
+      { "source": "/data-sci", "destination": "/data-sci.html", "permanent": true }
+    ]
+  }
+  
