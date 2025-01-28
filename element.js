@@ -45,9 +45,9 @@ const firebaseConfig = {
       
         var addtocart=document.querySelector('.addcart');
 
-console.log(localStorage);
+//console.log(localStorage);
 const auth = getAuth();
-console.log(auth);
+//console.log(auth);
 auth.onAuthStateChanged(user => {
   console.log("Session running", user);
   
