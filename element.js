@@ -176,7 +176,7 @@ const cart=()=>{
 addtocart.addEventListener('click',cart);
 //
 /*
-    */
+   
 document.addEventListener('DOMContentLoaded', () => {
     const p1 = document.getElementById('p1');
     const p2 = document.getElementById('p2');
@@ -219,4 +219,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-  
+   */
