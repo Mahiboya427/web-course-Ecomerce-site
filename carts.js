@@ -1,83 +1,115 @@
-// Import Firebase SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
-    authDomain: "auth-courseofferings.firebaseapp.com",
-    databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "auth-courseofferings",
-    storageBucket: "auth-courseofferings.firebasestorage.app",
-    messagingSenderId: "484839394488",
-    appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
-    measurementId: "G-PMQ4DGFSBZ"
-};
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore();
+    import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+   
+    import { getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+   
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
+        authDomain: "auth-courseofferings.firebaseapp.com",
+        databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "auth-courseofferings",
+        storageBucket: "auth-courseofferings.firebasestorage.app",
+        messagingSenderId: "484839394488",
+        appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
+        measurementId: "G-PMQ4DGFSBZ"
+      };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    //init service
+    const db=getFirestore();
+    //collection reference
+    const colRef=collection(db,'courses')
+    //get collection data
+    
+    const reply_click=(e)=>{
+        e.preventDefault();
+        console.log("hello");
+    }
+    
+    let contactid=localStorage.getItem('currentuser');
+    console.log(contactid); 
 
-// Get Course Collection
-const colRef = collection(db, "courses");
-
-// Retrieve user cart data
-const contactid = localStorage.getItem("currentuser");
-let items = JSON.parse(localStorage.getItem(contactid));
-console.log('items:', items);
-
-
-if (!items || !items.courseitems || items.courseitems.length === 0) {
-    document.getElementById("empty-cart-message").style.display = "block";
-} else {
+    let items=JSON.parse(localStorage.getItem(contactid));
+    console.log(items.courseitems);
+        
     getDocs(colRef)
-        .then((snapshot) => {
-            let courses = [];
+        .then((snapshot)=>{
+            let courses=[]   
             snapshot.docs.forEach((doc) => {
-                courses.push({ ...doc.data(), doc_id: doc.id });
+            courses.push({ ...doc.data(),doc_id:doc.id})    
             });
+            console.log("all courses",courses);
+            for(let i = 0; i<courses.length;i++){
 
-            const courseContainer = document.querySelector(".course-card");
-            courseContainer.innerHTML = ""; // Clear any existing data
+                for(let l=0;l<items.courseitems.length;l++){
+                     console.log(items.courseitems[l]);
+                     if(items.courseitems[l]==courses[i].id){
+                         console.log(courses[i]);
+                    
 
-            items.courseitems.forEach((courseId) => {
-                let course = courses.find((c) => c.id === courseId);
-                if (course) {
-                    let newDiv = document.createElement("div");
-                    newDiv.classList.add("card");
-                    newDiv.innerHTML = `
-                        <img class="course-pic" src="${course.pic}" alt="${course.title}">
+                
+             
+            let newdiv=document.createElement('div');
+            newdiv.classList.add('card');
+            
+            newdiv.innerHTML= `  
+                        
+                        <img class="course-pic" id="course-pic${i}"  src="" alt=""><br><br>
                         <div class="cd-part1">
-                            <p><strong>Course ID:</strong> <span>${course.id}</span></p>
-                            <p><strong>Title:</strong> <span>${course.title}</span></p>
-                            <p><strong>Category:</strong> <span>${course.category}</span></p>
-                            <p><strong>Price:</strong> <span>$${course.price}</span></p>
-                            <p><strong>Duration:</strong> <span>${course.duration}</span></p>
-                            <button class="remove" data-id="${course.id}">Remove</button>
+                        <label for="">course-id:</label><u><spam id="course-id${i}"></spam></u><br>
+                        <label for="">course-title:</label><u><spam id="course-title${i}"></spam></u><br>
+                        <label for="">course-category:</label><u><spam id="course-category${i}"></spam></u><br>
+                       <!-- <label for="">course-heading:</label><u><spam id="course-heading${i}"></spam></u><br>
+                        <label for="">course-rating:</label><u><spam id="course-rating${i}"></spam></u><br> -->
+                        <label for="">course-price:</label><u><spam id="course-price${i}"></spam></u><br>
+                        <label for="">course-duration:</label><u><spam id="course-duration${i}"></u></spam><br> 
+                        <button class="remove" type="submit" onClick="delete_element(this.id,event)" id="${courses[i].id}" >Delete Course</button>
                         </div>
-                    `;
+                        
+                        
+            `   
+            document.querySelector(".course-card").appendChild(newdiv)
+            
+ 
+            var course_id=document.getElementById("course-id"+i)
+            var course_title=document.getElementById("course-title"+i)
+            var course_category=document.getElementById("course-category"+i)
+           // var course_heading=document.getElementById("course-heading"+i)
+           // var course_rating=document.getElementById("course-rating"+i)
+            var course_price=document.getElementById("course-price"+i)
+            var course_duration=document.getElementById("course-duration"+i)
+            var course_pic=document.getElementById("course-pic"+i)
+           // var docid=document.getElementById('docid'+i)
+            
 
-                    // Append course card
-                    courseContainer.appendChild(newDiv);
-                }
-            });
 
-            // Add event listener for remove buttons
-            document.querySelectorAll(".remove").forEach((button) => {
-                button.addEventListener("click", (event) => {
-                    let courseId = event.target.getAttribute("data-id");
-                    removeCourse(courseId);
-                });
-            });
+            course_id.textContent=courses[i].id
+            course_title.textContent=courses[i].title
+            course_category.textContent=courses[i].category
+           // course_heading.textContent=courses[i].heading
+           // course_rating.textContent=courses[i].rating
+            course_price.textContent=courses[i].price
+            course_duration.textContent=courses[i].duration
+            course_pic.src=courses[i].pic
+           // docid.textContent=courses[i].doc_id
+                        
+           }}
+            
+            
+            }
+            
         })
-        .catch((err) => {
-            console.log("Error loading courses:", err.message);
-        });
-}
+        .catch((err)=>{
+            console.log(err.massage);
+        })
 
-// Function to remove course from cart
-function removeCourse(courseId) {
-    let updatedItems = items.courseitems.filter((id) => id !== courseId);
-    localStorage.setItem(contactid, JSON.stringify({ courseitems: updatedItems }));
-    location.reload(); // Refresh to update UI
-}
+        
