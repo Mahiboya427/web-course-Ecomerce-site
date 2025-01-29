@@ -24,6 +24,8 @@ const colRef = collection(db, "courses");
 // Retrieve user cart data
 const contactid = localStorage.getItem("currentuser");
 let items = JSON.parse(localStorage.getItem(contactid));
+console.log('items:', items);
+
 
 if (!items || !items.courseitems || items.courseitems.length === 0) {
     document.getElementById("empty-cart-message").style.display = "block";
