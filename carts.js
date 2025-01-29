@@ -36,7 +36,7 @@
     }
     
     let contactid=localStorage.getItem('currentuser');
-    console.log(contactid); 
+    console.log("contactid",contactid); 
 
     let items=JSON.parse(localStorage.getItem(contactid));
     console.log(items.courseitems);
