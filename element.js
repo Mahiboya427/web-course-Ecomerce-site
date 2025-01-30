@@ -49,7 +49,7 @@ const firebaseConfig = {
 const auth = getAuth();
 //console.log(auth);
 auth.onAuthStateChanged(user => {
-  console.log("Session running", user);
+  //console.log("Session running", user);
   
   if (user) {
       const email = user.email;
@@ -59,10 +59,10 @@ auth.onAuthStateChanged(user => {
       let existingCustomer = localStorage.getItem(email);
 
       if (existingCustomer) {
-          console.log("Email match found in localStorage");
+          //console.log("Email match found in localStorage");
       } else {
           // Create a new customer object if it doesn't exist
-          console.log("No match found. Creating a new customer.");
+          //console.log("No match found. Creating a new customer.");
           const customer = {
               courseitems: []
           };
@@ -71,9 +71,9 @@ auth.onAuthStateChanged(user => {
 
       // Always set the current user in localStorage
       localStorage.setItem('currentuser', email);
-      console.log("Current user set in localStorage:", email);
+      //console.log("Current user set in localStorage:", email);
   } else {
-      console.log("User is not logged in.");
+      //console.log("User is not logged in.");
   }
 });
 

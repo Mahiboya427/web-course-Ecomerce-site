@@ -455,17 +455,17 @@ window.signup = function (e) {
             alert("Error: " + err.message);
         });
 
-    console.log(obj);
+    console.log('obj',obj);
 };
 
     
     auth.onAuthStateChanged(user => {
-        console.log("running");
+        //console.log("running");
         console.log(user.email);
         if(user){
             document.getElementById("login-button").style.display='none';
             document.getElementById("logout-button").style.display='block';
-            console.log(auth.currentUser);
+            //console.log(auth.currentUser);
             document.title = "PROFILE PAGE";
             }
         else{
