@@ -1,4 +1,4 @@
-
+/*
 
 const p1=()=>{
     console.log("p1 running");
@@ -33,3 +33,4 @@ const p5=()=>{
     window.location.assign('./element5.html');
 }
 document.getElementById('p5').addEventListener('click',p5);
+*/

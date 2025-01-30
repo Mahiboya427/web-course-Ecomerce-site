@@ -173,7 +173,9 @@ const cart=()=>{
         }  
  
         
-addtocart.addEventListener('click',cart);
+
+    addtocart.addEventListener('click', cart);
+
 //
 /*
    
