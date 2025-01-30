@@ -39,7 +39,7 @@ var login_password=document.getElementById("login-password");
 //var register_password=document.getElementById("register-password");
 
 
-console.log(login_email.value,login_password.value);
+//console.log(login_email.value,login_password.value);
 const wrapper = document.querySelector('.wrapper'); 
 
 window.login=function (e) {
