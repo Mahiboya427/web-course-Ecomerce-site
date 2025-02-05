@@ -477,7 +477,7 @@ window.signup = function (e) {
     
 function logout(){
     auth.signOut();
-    localStorage.setItem('currentuser',"");
+    //localStorage.setItem('currentuser',"");
     document.getElementById("login-button").style.display='block';
     document.getElementById("logout-button").style.display='none';
     window.location.assign('./index.html');

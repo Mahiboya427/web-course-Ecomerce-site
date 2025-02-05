@@ -71,7 +71,7 @@ auth.onAuthStateChanged(user => {
 
       // Always set the current user in localStorage
       localStorage.setItem('currentuser', email);
-      //console.log("Current user set in localStorage:", email);
+      console.log("Current user set in localStorage:", email);
   } else {
       //console.log("User is not logged in.");
   }
