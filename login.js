@@ -54,12 +54,14 @@ window.login=function (e) {
     .then((userCredential) => {
         // Signed in 
        const user = userCredential.user;
+        console.log('show user',user);
         
         wrapper.classList.remove('active-popup'); 
         console.log(user.email);
         localStorage.setItem('currentuser',user.email);
+        localStorage.setItem('currentuserName',user.displayName);
         console.log("cuurentuser=",localStorage.getItem('currentuser'));
-        
+        console.log("currentuserName",localStorage.getItem('currentuserName'));
         alert("login sucessfull") ;
         document.getElementById("login-button").style.display='none';
         document.getElementById("logout-button").style.display='block';

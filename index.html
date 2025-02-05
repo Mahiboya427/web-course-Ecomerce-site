@@ -461,6 +461,7 @@ window.signup = function (e) {
     auth.onAuthStateChanged(user => {
         //console.log("running");
         console.log(user.email);
+        console.log('displayName',user.displayName);
         if(user){
             document.getElementById("login-button").style.display='none';
             document.getElementById("logout-button").style.display='block';
