@@ -606,108 +606,6 @@ footer .copyright {
     width: 100%;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-#soft-test-banner {
-    background-image: url("https://www.asictronix.com/wp-content/uploads/2020/03/testing_banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-
-}
-
-
-#data-banner {
-    background-image: url("https://www.blueoceanglobaltech.com/wp-content/uploads/2021/08/Data-Science-Banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-#comm-banner {
-    background-image: url("https://www.mhcautomation.com/wp-content/uploads/2022/09/Omnichannel-web-Banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-#web-banner {
-    background-image: url("https://www.obiyaninfotech.com/wp-content/uploads/2022/06/Website-Development.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-
-
-
-
-
-.soft-explore {
-    margin-top: 150px;
-    margin-left: 250px;
-}
-
-
-.data-explore {
-    margin-top: 0px;
-    margin-left: 900px;
-}
-
-
-.comm-explore {
-    margin-top: 0px;
-    margin-left: 870px;
-}
-
-
-
-.web-explore {
-    margin-top: 200px;
-    margin-left: 100px;
-}
-
-
-
 .section-m1 {
     margin: 40px 0;
 
@@ -715,81 +613,85 @@ footer .copyright {
 
 
 
+
+
+
+
+
+
+#element-banner {
+    background-color: bisque;
+    height: 35%;
+    margin: 15px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid orange;
+    box-shadow: 5px 5px goldenrod;
+}
+.heading {
+    font-size: xx-large;
+}
+.explore-button {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.explore-button:hover {
+    background: linear-gradient(45deg, #43a047, #5eaa64);
+    transform: scale(1.05);
+}
+.explore-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
 #element-img {
     height: 280px;
     width: 400px;
     border: 1px solid orange;
     align-items: center;
 }
-
 #element-pic {
     height: 230px;
     width: 400px;
     border: 2px solid orange;
 }
-
-
-#element-banner {
-    background-color: bisque;
-    height: 30%;
-    margin: 20px;
-    display: flex;
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid orange;
-
-    box-shadow: 5px 5px goldenrod;
-}
-
 #element-information {
     margin: 30px;
     width: 80%;
     padding: 20px;
     background-color: aliceblue;
 }
-
 #element-info {
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
 .part1 {
     margin-left: 5px;
 }
-
 .element-dis {
     margin: 30px;
     width: 80%;
     padding: 20px;
     background-color: aliceblue;
 }
-
-.heading {
-    font-size: xx-large;
-
-}
-
-
 .star i {
     color: gold;
 }
 
-.addcart {
-    margin-left: 20px;
-}
 
-#cart-view {
-    background-color: rgb(141, 170, 194);
-    margin: 20px;
-    padding: 20px;
-}
 
-#cart-view h1 {
-    text-align: center;
-}
+
+
+
 
 
 
@@ -840,10 +742,7 @@ tr:nth-child(even) {
     justify-content: space-evenly;
 }
 
-.course-card {
-    display: flex;
-    flex-wrap: wrap;
-}
+
 
 .card {
     border: 2px solid rgb(243, 243, 246);
@@ -874,14 +773,7 @@ tr:nth-child(even) {
 }
 
 
-.delete-section {
 
-    margin: 20px;
-    background-color: rgb(213, 180, 104);
-    padding: 10px;
-
-
-}
 
 
 .remove {
@@ -913,22 +805,6 @@ tr:nth-child(even) {
     width: 700px;
 }
 
-.payment-option {
-    margin: 10px;
-    width: 98%;
-    height: 30px;
-
-}
-
-.payment-page {
-    height: 30px;
-    width: 150px;
-    margin: 0px 5px;
-    margin-left: 1000px;
-    background-color: darkblue;
-    color: #fff;
-    border-radius: 5px;
-}
 
 .cod {
     display: flex;

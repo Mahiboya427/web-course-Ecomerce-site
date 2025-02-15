@@ -1,26 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Cart</title>
-    
-    <script src="https://cdn.c360a.salesforce.com/beacon/c360a/8a63a2ff-c0de-4503-83dd-eb517c01bd30/scripts/c360a.min.js" defer></script>
+    <script
+        src="https://cdn.c360a.salesforce.com/beacon/c360a/8a63a2ff-c0de-4503-83dd-eb517c01bd30/scripts/c360a.min.js"
+        defer></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
-    
 </head>
+<style>
+    #cart-view {
+        background-color: rgb(141, 170, 194);
+        margin: 20px;
+        padding: 20px;
+    }
+
+    #cart-view h1 {
+        text-align: center;
+    }
+
+    .course-card {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .delete-section {
+
+        margin: 20px;
+        background-color: rgb(213, 180, 104);
+        padding: 10px;
+
+
+    }
+
+    .payment-option {
+        margin: 10px;
+        width: 98%;
+        height: 30px;
+
+    }
+
+    .payment-page {
+        height: 30px;
+        width: 150px;
+        margin: 0px 5px;
+        margin-left: 1000px;
+        background-color: darkblue;
+        color: #fff;
+        border-radius: 5px;
+    }
+</style>
+
 <body>
-
-
-    
     <section id="header">
-        <a href="index.html"><img src="https://banner2.cleanpng.com/20180817/wac/kisspng-e-learning-logo-industry-educational-technology-br-offline-is-the-new-online-unleash-the-power-of-an-5b76826b01f469.279560991534493291008.jpg" class="logo" alt=""></a>
+        <a href="index.html"><img
+                src="https://banner2.cleanpng.com/20180817/wac/kisspng-e-learning-logo-industry-educational-technology-br-offline-is-the-new-online-unleash-the-power-of-an-5b76826b01f469.279560991534493291008.jpg"
+                class="logo" alt=""></a>
         <li class="hov"><a class="abc" href="course.html">Course</a>
-        
-        
+
+
             <div class="sub-menu-1">
                 <ul>
                     <li class="hover-me"><a href="web-dev.html">web development</a><i class="fa fa-angle-right"></i>
@@ -32,8 +74,8 @@
                                 <li><a href="element4.html">React</a></li>
                             </ul>
                         </div>
-                    
-                    
+
+
                     </li>
                     <li class="hover-me"><a href="data-sci.html">data science</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
@@ -45,7 +87,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="hover-me"><a href="software-eng.html">software testing</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="software-eng.html">software testing</a><i
+                            class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
                                 <li><a href="element9.html">Java</a></li>
@@ -53,7 +96,7 @@
                                 <li><a href="element11.html">QA testing</a></li>
                                 <li><a href="element12.html">Automation testing</a></li>
                             </ul>
-                        </div>    
+                        </div>
                     </li>
                     <li class="hover-me"><a href="communication.html">communication</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
@@ -67,7 +110,7 @@
                     </li>
                 </ul>
             </div>
-        
+
         </li>
         <p class="abc" id="user"></p>
         <div>
@@ -77,28 +120,30 @@
                 <a href="cart.html" class="cart"><i class="fal fa-shopping-cart cart"></i></a>
                 <li><button class="login-button" id="login-button">Login</button></li>
                 <li><button class="login-button" id="logout-button">Logout</button></li>
-            
+
             </ul>
         </div>
     </section>
-<!--    <div class="delete-section">
+
+    <div class="delete-section">
         <form id="del-form" onsubmit="delete_course(event)">
             <label for="">Remove Course</label>
             <input id="courseid" type="text" placeholder="enter course-id">
             <button class="delete" type="submit">Remove</button>
         </form>
-    </div> -->
+    </div>
+
     <section id="cart-view">
         <h1><u>COURSE-CART</u> </h1>
-        <br>        
+        <br>
         <div class="course-card"></div>
         <div class="payment-option">
             <spam><a href="payment.html"><button class="payment-page">Purchase Courses</button></a></spam>
-            </div>
-                    
+        </div>
+
     </section>
 
-    
+
 
 
     <section id="banner" class="section-m1">
@@ -106,7 +151,7 @@
         <h2>23% discount off</h2>
         <button class="normal">explore more</button>
 
-       
+
     </section>
 
 
@@ -121,16 +166,16 @@
         </div>
     </section>
 
-    <footer class="section-p1"> 
+    <footer class="section-p1">
         <div class="col">
             <img class="logo" src="" alt="">
             <h4>Contact</h4>
             <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</P>
             <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
             <p><strong>Hours:</strong> 10:00 18:00, Mon - Sat</p>
-        
+
             <div class="follow">
-                <h4>Follow us</h4> 
+                <h4>Follow us</h4>
                 <div class="icon">
                     <i class="fab fa-facebook-f"></i> <i class="fab fa-twitter"></i>
                     <i class="fab fa-instagram"></i>
@@ -138,7 +183,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col">
             <h4>About</h4> <a href="#">About us</a>
             <a href="#">Delivery Information</a>
@@ -146,7 +191,7 @@
             <a href="#">Terms & Conditions</a>
             <a href="#">Contact Us</a>
         </div>
-        
+
         <div class="col">
             <h4>My Account</h4>
             <a href="#">Sign In</a>
@@ -155,31 +200,32 @@
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
         </div>
-        
+
 
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-            <img src="" alt="">
-            <img src="" alt="">
-            </div> 
-                <p>Secured Payment Gateways </p>
+                <img src="" alt="">
                 <img src="" alt="">
             </div>
-            
-            <div class="copyright">
-            <p>> 2023, Tech2 etc HTML CSS Ecommerce Template</p> 
+            <p>Secured Payment Gateways </p>
+            <img src="" alt="">
         </div>
-        </footer>
+
+        <div class="copyright">
+            <p>> 2023, Tech2 etc HTML CSS Ecommerce Template</p>
+        </div>
+    </footer>
 
 
 
 
-       <script src="session.js" type="module"></script>
+    <script src="session.js" type="module"></script>
     <script src="remove-course.js" type="module"></script>
-  
+
     <SCript src="element.js" type="module"></SCript>
     <script src="carts.js" type="module"></script>
 </body>
+
 </html>
