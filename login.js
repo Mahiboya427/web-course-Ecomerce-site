@@ -48,7 +48,7 @@ window.login=function (e) {
         email:login_email.value,
         password:login_password.value
     };
-    console.log(obj1);
+    console.log('loged-in user : ',obj1);
 
     signInWithEmailAndPassword(auth,obj1.email,obj1.password)
     .then((userCredential) => {
@@ -61,21 +61,17 @@ window.login=function (e) {
         localStorage.setItem('currentuser',user.email);
         localStorage.setItem('currentuserName',user.displayName);
         console.log("cuurentuser=",localStorage.getItem('currentuser'));
-        console.log("currentuserName",localStorage.getItem('currentuserName'));
+        console.log("currentuserName=",localStorage.getItem('currentuserName'));
         alert("login sucessfull") ;
         document.getElementById("login-button").style.display='none';
         document.getElementById("logout-button").style.display='block';
             
-
-        // ...
       })
    
         .catch(function (err) {
         alert("login error"+err)
                 
     })
-    //console.log(obj1);
-    
 
 };
 

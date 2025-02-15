@@ -1,79 +1,66 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
 
-body{
-    width: 100%;
-
+body,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-#header{
+
+
+
+
+#header {
     display: flex;
+    color: white;
     align-items: center;
-    justify-content:space-around;
-    padding: 10px 70px;
-    background-color:#F0F8FF;
-    box-shadow: 0px 5px 10px rgb(193, 239, 210);
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
     z-index: 999;
     position: sticky;
-     top: 0;
-     left: 0;
+    top: 0;
+    left: 0;
     font-weight: bolder;
-    margin-bottom: 5px;
 }
-.logo{
-    background-repeat: no-repeat;
-    image-resolution: 500px;
-    border: 0px;
+.logo {
     height: 50px;
-    width: 100px;
 }
-.section-p1{
-    padding:40px 80px;
-}
-
-#navbar{
+#navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-
-#navbar li{
-    list-style: none;
+#navbar li {
     padding: 0 20px;
     position: relative;
 }
-
-
-#navbar li a{
+#navbar li a {
     text-decoration: none;
     font-size: 16px;
-    font-size: 600;
-    color: rgb(0, 85, 255);
-    transition:0.3s ease;
+    font-weight: 600;
+    transition: 0.3s ease;
+    color: white;
 }
-
-
 #navbar li a:hover,
-navbar li a:active{
-    color: rgb(112, 171, 122);
+navbar li a:active {
+    color: rgb(125, 134, 126);
 }
-
-#navbar li a.active::after
-#navbar li a:hover:after{
+#navbar li a.active::after,
+#navbar li a:hover:after {
     content: "";
     width: 30%;
     height: 2px;
-    background-color: aqua;
     position: absolute;
     bottom: -4px;
     left: 20px;
+    background-color: rgb(125, 134, 126);
 }
-
-
-.login-button{
+.login-button {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -85,101 +72,176 @@ navbar li a:active{
     color: #73e38b;
     font-weight: 500;
     margin-left: 40px;
-    transition: .5s;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
-.login-button:hover{
-    background-color: #fff;
-    color: hotpink;
+.login-button:hover {
+    background-color: #655c5c;
+    color: rgb(103, 156, 115);
+}
+.hov {
+    position: relative;
+}
+.sub-menu-1 {
+    display: none;
+    display: none;
+    position: absolute;
+    background-color: rgb(102, 124, 140);
+    color: white;
+}
+.hov:hover .sub-menu-1 {
+    display: block;
+}
+.sub-menu-1 ul {
+    margin: 0;
+    padding: 0;
+}
+.sub-menu-1 li {
+    padding: 5px 20px;
+    position: relative;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    text-align: left;
+}
+.sub-menu-1 li:last-child {
+    border-bottom: none;
+}
+.sub-menu-1 li a:hover {
+    color: rgb(169, 90, 145);
+}
+.fa-angle-right {
+    float: right;
+}
+.abc {
+    text-decoration: none;
+    font-size: 16px;
+    font-size: 600;
+    transition: 0.3s ease;
+    color: white;
+}
+.sub-menu-1 {
+    position: absolute;
+    margin-top: 0px;
+}
+.sub-menu-1 li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+.sub-menu-1 li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-size: 600;
+    transition: 0.3s ease;
+}
+.hov:hover .sub-menu-1 ul {
+    display: block;
+    margin: 10px;
+}
+.hov:hover .sub-menu-1 ul li {
+    width: 150px;
+    padding: 5px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+    display: block;
+}
+.hov:hover .sub-menu-1 ul li:last-child {
+    border-bottom: none;
+}
+.hov:hover .sub-menu-1 ul a:hover {
+    color: rgb(78, 66, 74);
+}
+.sub-menu-2 {
+    display: none;
+    position: absolute;
+    background-color: rgb(102, 124, 140);
+    color: white;
+    top: 0;
+}
+.hover-me:hover .sub-menu-2 {
+    background-color: rgb(102, 124, 140);
+    color: white;
+    display: block;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 155px;
+    transition: 0.02s;
 }
 
 
-.extra{
-    background-image: url("https://c0.wallpaperflare.com/preview/722/962/382/learn-student-laptop-internet.jpg");
+
+
+
+
+
+
+
+
+.extra {
+    background-image: url("https://www.upshottechnologies.in/images/software-training-institute-in-bangalore-btm-layout.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 600px;
-    margin: 5px 0px 5px 0px;
+    height: 550px;
     padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px;
-    
-    
-    
-
 }
-
 .wrapper {
-    margin-top: 0px;
-    margin-bottom: 60px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     position: relative;
     width: 400px;
-    height: 440px;
-   /* margin-top: 400px;
-    margin-left: 350px;*/
+    height: 400px;
     background: transparent;
-    background-color: beige; 
-    border: 2px solid rgba(64, 23, 91, 0.5); 
-    border-radius: 20px; 
-    backdrop-filter: blur (20px); 
-    box-shadow: 00 30px rgba(0, 0, 0, .5); justify-content: center; align-items: center;
+    background-color: beige;
+    border: 2px solid rgba(64, 23, 91, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur (20px);
+    box-shadow: 00 30px rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: scale(0);
-    transition:transform .5s ease, height .2s ease;
+    transition: transform .5s ease, height .2s ease;
 
 }
-
-.wrapper.active-popup{
-    transform: scale(1) ;
+.wrapper.active-popup {
+    transform: scale(1);
 }
-
-.wrapper.active{
+.wrapper.active {
     height: 520px;
 }
-
-
-
-
-
 .wrapper .form-box {
-    
-    width: 100%; 
-    padding: 40px;
+
+    width: 100%;
+    padding: 30px;
 }
-
-.wrapper .form-box.login{
-   /* display: none;*/
-   transition: transform .18s ease;
-   transform: translateX(0);
- 
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
-
-
-.wrapper.active .form-box.login{
+.wrapper.active .form-box.login {
     transition: none;
     transform: translateX(-400px);
 }
-
-
-.wrapper .form-box.register{
+.wrapper .form-box.register {
     position: absolute;
     transition: none;
+    height: 400px;
     transform: translateX(400px);
 }
-
-
-.wrapper.active .form-box.register{
+.wrapper.active .form-box.register {
     transition: transform .18s ease;
     transform: translateX(0);
-  
-    }
-
-.wrapper .icon-close{
+}
+.wrapper .icon-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -195,23 +257,19 @@ navbar li a:active{
     cursor: pointer;
     z-index: 1;
 }
-
-    .form-box h2{
-        font-size: 2em;
-        color: black;
-        text-align: center;
-    }
-
-    .input-box{
-        position: relative;
-        width: 100%;
-        height: 50px;
-        border-bottom: 2px solid darkgreen;
-        margin: 30px 0px;
-    }
-
-
-.input-box label{
+.form-box h2 {
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid darkgreen;
+    margin: 30px 0px;
+}
+.input-box label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -222,19 +280,11 @@ navbar li a:active{
     pointer-events: none;
     transition: .5s;
 }
-
-
 .input-box input:focus~label,
-.input-box input:focus~label{
-    top:-5px;
-} 
-
-
-
-
-
-
-.input-box input{
+.input-box input:focus~label {
+    top: -5px;
+}
+.input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -245,16 +295,14 @@ navbar li a:active{
     font-weight: 600;
     padding: 0 35px 0 5px;
 }
-
-.input-box .icon{
+.input-box .icon {
     position: absolute;
     right: 8px;
     font-size: 1.2em;
     color: darkorange;
-    line-height: 57px; 
+    line-height: 57px;
 }
-
-.remember-forget{
+.remember-forget {
     font-size: .9em;
     color: darkorchid;
     font-weight: 500;
@@ -262,23 +310,19 @@ navbar li a:active{
     display: flex;
     justify-content: space-between;
 }
-
-.remember-forget label input{
+.remember-forget label input {
     accent-color: browm;
     margin-right: 3px;
 
 }
-
-.remember-forget a{
+.remember-forget a {
     color: brown;
     text-decoration: none;
 }
-
-.remember-forget a:hover{
+.remember-forget a:hover {
     text-decoration: underline;
 }
-
-.btn{
+.btn {
     width: 100%;
     height: 45px;
     background: darkslategray;
@@ -290,7 +334,7 @@ navbar li a:active{
     color: #fff;
     font-weight: 500;
 }
-#google-btn{
+#google-btn {
     width: 100%;
     height: 45px;
     background: lightgray;
@@ -299,29 +343,26 @@ navbar li a:active{
     border-radius: 6px;
     cursor: pointer;
     font-size: 1em;
-    color:darkgreen;
+    color: darkgreen;
     font-weight: 500;
 }
-.login-register{
+.login-register {
     font-size: .9em;
     color: darkblue;
     text-align: center;
     font-weight: 500;
-    margin: 25px 0 10px ;
+    margin: 25px 0 10px;
 }
-
-#logout-button{
+#logout-button {
     display: none;
 }
-
-.login-register p a{
+.login-register p a {
     color: blueviolet;
     text-decoration: none;
     font-weight: 600;
 }
-
-.login-register p a:hover{
-    text-decoration: underline ;
+.login-register p a:hover {
+    text-decoration: underline;
 }
 
 
@@ -332,190 +373,53 @@ navbar li a:active{
 
 
 
-
-
-
-
-
-
-
-
-#hero{
-    background-image: url("https://cdn-blog.novoresume.com/articles/creative-resume-templates/bg.png");
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: column;
-     align-items:flex-start;
-     justify-content: center;
-     
-     
+.section-p1 {
+    padding: 40px 60px;
 }
-
-
-#soft-test-banner{
-    background-image: url("https://www.asictronix.com/wp-content/uploads/2020/03/testing_banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-     align-items:flex-start;
-     justify-content: center;
-     
-     
-}
-
-
-#data-banner{
-    background-image: url("https://www.blueoceanglobaltech.com/wp-content/uploads/2021/08/Data-Science-Banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-     align-items:flex-start;
-     justify-content: center;    
-}
-
-
-#comm-banner{
-    background-image: url("https://www.mhcautomation.com/wp-content/uploads/2022/09/Omnichannel-web-Banner.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-     align-items:flex-start;
-     justify-content: center;    
-}
-
-
-#web-banner{
-    background-image: url("https://www.obiyaninfotech.com/wp-content/uploads/2022/06/Website-Development.jpg");
-    margin-top: 12px;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 35% right 0%;
-    padding: 20px 80px;
-    display: flex;
-    flex-direction: column;
-     align-items:flex-start;
-     justify-content: center;    
-}
-
-.explore-button{
-    background-image: url("");
-    background-color: lightgreen;
-    color: white;
-    border: 0;
-    box-shadow: 0px 5px 5px rgb(7, 233, 14);
-    padding: 14px 80px 14px 65px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-
-}
-
-
-.explore{
-    margin-bottom:300px ;
-    margin-left: 900px;
-}
-
-
-.soft-explore{
-    margin-top:150px ;
-    margin-left: 250px;
-}
-
-
-.data-explore{
-    margin-top:250px ;
-    margin-left: 900px;
-}
-
-
-.comm-explore{
-    margin-top:0px ;
-    margin-left: 870px;
-}
-
-
-
-.web-explore{
-    margin-top:200px ;
-    margin-left: 100px;
-}
-
-#feature
-{
+#feature {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 40px 80px;
 }
-#feature .fe-box{
+#feature .fe-box {
     width: 180px;
     text-align: center;
-    padding: 20px 15px;
+    padding: 10px 10px;
     box-shadow: 3px 3px 3px rgb(168, 94, 94);
     border: 1px solid coral;
     border-radius: 4px;
-    margin: 15px 0;  
+    margin: 15px 0;
 
 }
-
-#feature .fe-box:hover{
+#feature .fe-box:hover {
     box-shadow: 3px 3px 3px orangered;
 }
-#feature .fe-box h6{
+#feature .fe-box h6 {
     display: inline-block;
-    padding:  9px 8px 6px 8px;
+    padding: 9px 8px 6px 8px;
     line-height: 1;
     border-radius: 4px;
     color: blueviolet;
     background-color: cadetblue;
 }
-
-#feature .fe-box img{
-    width: 100px;
-    height: 110px;
+#feature .fe-box img {
+    width: 150px;
+    height: 150px;
     margin-bottom: 10px;
 }
-
-.section-m1{
-    margin: 40px 0;
-
-}
- 
-#product1{
+#product1 {
     text-align: center;
 
 }
-
-#product1 .pro-container{
+#product1 .pro-container {
     display: flex;
     justify-content: space-between;
-    padding-top:20px ;
+    padding-top: 20px;
     flex-wrap: wrap;
 }
-
-#product1 .pro{
+#product1 .pro {
     width: 23%;
     min-width: 250px;
     padding: 10px 12px;
@@ -527,65 +431,63 @@ navbar li a:active{
     transition: 0.2s ease;
     position: relative;
 }
-
-#product1 .pro img{
+#product1 .pro img {
     width: 100%;
     border-radius: 20px;
 }
-
-#product1 .pro:hover{
+#product1 .pro:hover {
     box-shadow: 5px 5px 5px rgb(6, 56, 6);
-    
 }
-
-#product1 .pro .des{
+#product1 .pro .des {
     text-align: start;
     padding: 10px 0;
 }
-
-#product1 .pro .des span{
+#product1 .pro .des span {
     color: brown;
     font-size: 12px;
 }
-
-#product1 .pro .des h5{
-    padding-top:7px ;
+#product1 .pro .des h5 {
+    padding-top: 7px;
     color: black;
     font-size: 14px;
-
 }
-
-#product1 .pro .des i{
+#product1 .pro .des i {
     font-size: 12px;
     color: gold;
 }
-
-#product1 .pro .des h4{
+#product1 .pro .des h4 {
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
     color: lawngreen;
-} 
-
-#product1 .pro .cart{
+}
+#product1 .pro .cart {
     width: 40px;
     height: 40px;
     line-height: 40px;
     border-radius: 50px;
-    background-color:darkslateblue;
+    background-color: darkslateblue;
     font-weight: 500;
     color: darkcyan;
-    border:1px solid red ;
+    border: 1px solid red;
     position: absolute;
     border: 20px;
     right: 10px;
 }
-
-.pro img{
+.pro img {
     height: 200px;
     width: 200px;
 }
-#banner{
+
+
+
+
+
+
+
+
+
+#banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -597,19 +499,16 @@ navbar li a:active{
     background-size: cover;
     background-position: center;
 }
-
-#banner  h4{
+#banner h4 {
     color: blue;
     font-size: 16px;
 }
-
-#banner  h4{
+#banner h4 {
     color: aqua;
     font-size: 30px;
     padding: 10px 0;
 }
-
-button.normal{
+button.normal {
     font-size: 14px;
     font-weight: 600;
     padding: 15px 30px;
@@ -619,16 +518,13 @@ button.normal{
     cursor: pointer;
     border: none;
     outline: none;
-    transition: 0.2s; 
+    transition: 0.2s;
 }
-
-#banner button:hover{
+#banner button:hover {
     background-color: pink;
     color: aqua;
 }
-
-
-#newsletter{
+#newsletter {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -636,213 +532,204 @@ button.normal{
     background-image: url("");
     background-repeat: no-repeat;
     background-position: 20% 30%;
-    background-color:darkblue ;
+    background-color: darkblue;
 }
-
-#newsletter input{
+#newsletter input {
     height: 3.125rem;
-    padding:0 1.25rem ;
+    padding: 0 1.25rem;
     font-size: 14px;
     width: 100%;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     border-radius: 4px;
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-
-#newsletter .form{
+#newsletter .form {
     display: flex;
     width: 40%;
 }
-
-#newsletter button{
+#newsletter button {
     white-space: nowrap;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
-
-
-footer{
+footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
-}
 
-footer .col{
+}
+footer .col {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
-
 }
-
 footer .logo {
     margin-bottom: 30px;
-    
 }
-    
-footer h4 { 
-    font-size: 14px; 
+footer h4 {
+    font-size: 14px;
     padding-bottom: 20px;
-    
 }
-    
 footer p {
     font-size: 13px;
     margin: 0 0 8px 0;
-
 }
-
 footer a {
     font-size: 13px;
     text-decoration: none;
     color: black;
     margin-bottom: 10px;
-
 }
-
-footer .follow{
+footer .follow {
     margin-top: 20px;
 }
-
-footer .follow i{
+footer .follow i {
     color: blue;
     padding-right: 4px;
-    cursor: pointer;;
+    cursor: pointer;
 }
-
-footer .install .row .img{
+footer .install .row .img {
     border: 1px solid green;
     border-radius: 6px;
 }
-
-footer .install img{
+footer .install img {
     margin: 10px 0 15px 0;
 }
-
 footer .follow i:hover,
-footer a:hover{
+footer a:hover {
     color: green;
 }
-
-footer .copyright{
+footer .copyright {
     width: 100%;
     text-align: center;
 }
 
-.sub-menu-1{
-    display:none;
+
+
+
+
+
+
+
+
+
+#soft-test-banner {
+    background-image: url("https://www.asictronix.com/wp-content/uploads/2020/03/testing_banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+
 }
 
-.hov{
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
+
+#data-banner {
+    background-image: url("https://www.blueoceanglobaltech.com/wp-content/uploads/2021/08/Data-Science-Banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.abc{
-    text-decoration: none;
-    font-size: 16px;
-    font-size: 600;
-    color: blue;
-    transition:0.3s ease;
+
+#comm-banner {
+    background-image: url("https://www.mhcautomation.com/wp-content/uploads/2022/09/Omnichannel-web-Banner.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.sub-menu-1{
-    position: absolute;
+
+#web-banner {
+    background-image: url("https://www.obiyaninfotech.com/wp-content/uploads/2022/06/Website-Development.jpg");
+    margin-top: 12px;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 35% right 0%;
+    padding: 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+
+
+
+.soft-explore {
+    margin-top: 150px;
+    margin-left: 250px;
+}
+
+
+.data-explore {
     margin-top: 0px;
-    
-
-}
-.sub-menu-1 li{
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
+    margin-left: 900px;
 }
 
 
-.sub-menu-1 li a{
-    text-decoration: none;
-    font-size: 16px;
-    font-size: 600;
-  
-    transition:0.3s ease;
-}
-
-.hov:hover .sub-menu-1{
-    display: block;
-    position: absolute;
-    background-color: rgb(201, 248, 224);
-    margin-top: 2px;
-    margin-left: 0px;
-    transition: 0.02s;
-}
-
-.hov:hover .sub-menu-1 ul{
-    display: block;
-    margin: 10px;
+.comm-explore {
+    margin-top: 0px;
+    margin-left: 870px;
 }
 
 
-.hov:hover .sub-menu-1 ul li{
-    width: 150px;
-    padding: 5px;
-    border-bottom:1px dotted #fff ;
-    background: transparent;
-    border-radius: 0;
-    text-align: left;
-    display: block;
+
+.web-explore {
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+
+
+.section-m1 {
+    margin: 40px 0;
 
 }
 
 
-.hov:hover .sub-menu-1 ul li:last-child{
-    border-bottom: none;
-}
 
-
-.hov:hover .sub-menu-1 ul a:hover{
-    color: rgb(169, 90, 145);
-}
-
-.fa-angle-right{
-    float: right;
-}
-
-
-.sub-menu-2{
-    display: none;
-}
-
-
-.hover-me:hover .sub-menu-2{
-    
-    display: block;
-    position: absolute;
-    margin-top: -30px;
-    margin-left: 155px;
-    background-color:rgb(201, 248, 224);
-    transition: 0.02s;
-}
-
-
-#element-img{
+#element-img {
     height: 280px;
     width: 400px;
     border: 1px solid orange;
     align-items: center;
 }
 
-#element-pic{
+#element-pic {
     height: 230px;
     width: 400px;
     border: 2px solid orange;
 }
 
 
-#element-banner{
+#element-banner {
     background-color: bisque;
     height: 30%;
     margin: 20px;
@@ -851,59 +738,65 @@ footer .copyright{
     justify-content: space-between;
     align-items: center;
     border: 2px solid orange;
-    
+
     box-shadow: 5px 5px goldenrod;
 }
-#element-information{
+
+#element-information {
     margin: 30px;
     width: 80%;
     padding: 20px;
     background-color: aliceblue;
 }
-#element-info{
+
+#element-info {
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.part1{
+
+.part1 {
     margin-left: 5px;
 }
-.element-dis{
+
+.element-dis {
     margin: 30px;
     width: 80%;
     padding: 20px;
     background-color: aliceblue;
 }
-.heading{
+
+.heading {
     font-size: xx-large;
 
 }
 
 
-.star i{
+.star i {
     color: gold;
 }
 
-.addcart{
+.addcart {
     margin-left: 20px;
 }
 
-#cart-view{
+#cart-view {
     background-color: rgb(141, 170, 194);
     margin: 20px;
-    padding: 20px;}
+    padding: 20px;
+}
 
-    #cart-view h1{
-        text-align: center;
-    }
+#cart-view h1 {
+    text-align: center;
+}
 
 
 
 .price-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%; 
+    width: 100%;
     margin: 5px;
     margin-bottom: 20px;
     background-color: cadetblue;
@@ -911,60 +804,63 @@ footer .copyright{
 }
 
 
-td, th {
+td,
+th {
     border: 1px solid #dddddd;
     padding: 8px;
-  }
+}
 
-  tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #dddddd;
-  }  
+}
 
-  .payment-form{
+.payment-form {
     font-family: arial, sans-serif;
     text-align: center;
     margin: 5px;
-    background-color:cadetblue;
+    background-color: cadetblue;
     width: 100%;
-  }
+}
 
-  .payment-form input{
+.payment-form input {
     width: 98%;
     height: 30px;
     margin: 3px;
 
-  }
-  #radio{
-    
-    font-weight: 10;
-  }
+}
 
- .payment{
+#radio {
+
+    font-weight: 10;
+}
+
+.payment {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
- }
+}
 
- .course-card{
+.course-card {
     display: flex;
     flex-wrap: wrap;
 }
 
-.card{
+.card {
     border: 2px solid rgb(243, 243, 246);
-    border-radius: 5px;;
+    border-radius: 5px;
+    ;
     padding: 5px;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
- 
+
 }
- 
 
 
- .course-pic{
+
+.course-pic {
     align-items: center;
     border: 2px solid white;
     width: 200px;
@@ -974,24 +870,24 @@ td, th {
     background-position: center;
     background-size: cover;
     background-color: black;
-    
- }
-
- 
-.delete-section{
-    
-    margin: 20px;
-    background-color: rgb(213, 180, 104);
-    padding: 10px;
-    
 
 }
 
 
-.remove{
-    font-weight:bold;
+.delete-section {
+
+    margin: 20px;
+    background-color: rgb(213, 180, 104);
+    padding: 10px;
+
+
+}
+
+
+.remove {
+    font-weight: bold;
     padding: 5px;
-    border: 2px  solid black;
+    border: 2px solid black;
     margin: 7px;
     margin-left: 70px;
     text-align: center;
@@ -999,42 +895,42 @@ td, th {
     border-radius: 10px;
 }
 
-.segment{
+.segment {
     margin: 50px;
     display: flex;
     justify-content: space-around;
-    
+
     align-items: center;
 }
 
-.segment2{
+.segment2 {
     height: 50%;
     width: 45%;
 }
 
-.segement1{
+.segement1 {
     margin-top: 100px;
     width: 700px;
 }
 
-.payment-option{
+.payment-option {
     margin: 10px;
     width: 98%;
     height: 30px;
-    
+
 }
 
-.payment-page{
+.payment-page {
     height: 30px;
-   width: 150px;
-    margin:0px 5px;
+    width: 150px;
+    margin: 0px 5px;
     margin-left: 1000px;
     background-color: darkblue;
     color: #fff;
     border-radius: 5px;
 }
 
-.cod{
+.cod {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1044,15 +940,15 @@ td, th {
     font-size: x-large;
 }
 
-.radio{
+.radio {
     height: 30px;
     width: 20px;
     margin-right: 10px;
-    font-size:xx-large ;
+    font-size: xx-large;
 }
 
 
-.final{
+.final {
     background-color: darkblue;
     height: 30%;
     width: 80%;
@@ -1068,7 +964,7 @@ td, th {
     padding-top: 5px;
 }
 
-.gohome{
+.gohome {
     margin: 5px;
     margin-left: 32px;
     border-color: wheat;

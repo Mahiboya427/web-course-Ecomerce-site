@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,16 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
-    
 </head>
+
 <body>
     <section id="header">
-        <a href="#"><img src="https://banner2.cleanpng.com/20180817/wac/kisspng-e-learning-logo-industry-educational-technology-br-offline-is-the-new-online-unleash-the-power-of-an-5b76826b01f469.279560991534493291008.jpg" class="logo" alt=""></a>
-        <li class="hov"><a class="abc" href="#">Course</a>
-        
-        
+        <a href="#"><img class="logo"
+                src="https://banner2.cleanpng.com/20180817/wac/kisspng-e-learning-logo-industry-educational-technology-br-offline-is-the-new-online-unleash-the-power-of-an-5b76826b01f469.279560991534493291008.jpg"
+                alt=""></a>
+        <li class="hov"><a class="abc">Course</a>
+
+
             <div class="sub-menu-1">
                 <ul>
                     <li class="hover-me"><a href="web-dev.html">web development</a><i class="fa fa-angle-right"></i>
@@ -26,8 +29,8 @@
                                 <li><a href="element4.html">React</a></li>
                             </ul>
                         </div>
-                    
-                    
+
+
                     </li>
                     <li class="hover-me"><a href="data-sci.html">data science</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
@@ -39,7 +42,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="hover-me"><a href="software-eng.html">software testing</a><i class="fa fa-angle-right"></i>
+                    <li class="hover-me"><a href="software-eng.html">software testing</a><i
+                            class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
                             <ul>
                                 <li><a href="element9.html">Java</a></li>
@@ -47,7 +51,7 @@
                                 <li><a href="element11.html">QA testing</a></li>
                                 <li><a href="element12.html">Automation testing</a></li>
                             </ul>
-                        </div>    
+                        </div>
                     </li>
                     <li class="hover-me"><a href="communication.html">communication</a><i class="fa fa-angle-right"></i>
                         <div class="sub-menu-2">
@@ -61,122 +65,118 @@
                     </li>
                 </ul>
             </div>
-        
+
         </li>
-       
+
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="">About</a></li>
-               <a href="cart.html" class="cart" id="cart"><i class="fal fa-shopping-cart cart"></i></a>
+                <a href="cart.html" class="cart" id="cart"><i class="fal fa-shopping-cart cart"></i></a>
                 <li><button class="login-button" id="login-button">Login</button></li>
                 <li><button class="login-button" id="logout-button">Logout</button></li>
                 <li><button id="opt-in">opt-in</button></li>
                 <li><button id="opt-out">opt-out</button></li>
-                
+
             </ul>
         </div>
     </section>
 
     <section class="extra">
-    <div class="wrapper">
-        <span class="icon-close">
-            <ion-icon name="close"></ion-icon>
-        </span>
-        <div class="form-box login">
-            <h2>Login</h2>
-            <form onsubmit="login(event)" id="login-form">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input id="login-email" type="email" required>
-                    <label for="">Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input id="login-password" type="password" required>
-                    <label for="">Password</label>
-                </div>
-                <div class="remember-forget">
-                    <label for=""><input type="checkbox">
-                    Remember me</label>
-                    <a href="">Forget password?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <div class="login-register">
-                    <p>Dont have an account? 
-                        <a href="#" class="register-link">Register</a>
-                    </p><br>
-                   
-                </div>
-            </form>
+        <div class="wrapper">
+            <span class="icon-close">
+                <ion-icon name="close"></ion-icon>
+            </span>
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form onsubmit="login(event)" id="login-form">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input id="login-email" type="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input id="login-password" type="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label for=""><input type="checkbox">
+                            Remember me</label>
+                        <a href="">Forget password?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Dont have an account?
+                            <a href="#" class="register-link">Register</a>
+                        </p><br>
+
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="form-box register">
+                <h2>register</h2>
+                <form onsubmit="signup(event)" id="register-form" class="registration-form">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input id="register-email" type="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input id="username" type="text" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input id="register-password" type="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="remember-forget">
+                        <label for=""><input type="checkbox">
+                            I agree the terms and conditions</label>
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    <div class="login-register">
+                        <p>already have an account?
+                            <a href="#" class="login-link">Login</a>
+                        </p><br>
+                        <button id="google-btn">continue with Google</button>
+                    </div>
+                </form>
+
+
+            </div>
         </div>
 
-        
-        <div class="form-box register">
-            <h2>register</h2>
-            <form  onsubmit="signup(event)" id="register-form" class="registration-form">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input id="register-email" type="email" required>
-                    <label for="">Email</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input id="username" type="text" required>
-                    <label for="">Username</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input id="register-password" type="password" required>
-                    <label for="">Password</label>
-                </div>
-                <div class="remember-forget">
-                    <label for=""><input type="checkbox">
-                    I agree the terms and conditions</label>
-                </div>
-                <button type="submit" class="btn">Register</button>
-                <div class="login-register">
-                    <p>already have an account? 
-                        <a href="#" class="login-link">Login</a>
-                    </p><br>
-                    <button id="google-btn">continue with Google</button>
-                </div>
-            </form>
-            
-            
-        </div>
-    </div>
-   
-</section>
-
-    <section id="hero">
-        
-        <div class="explore">
-            <h1>THINK BIG</h1>
-        <button class="explore-button">explore</button>
-        </div>
-        
     </section>
-
 
     <section id="feature" class="section-p1">
         <div class="fe-box">
-            <a href="data-sci.html"><img src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2020/06/iStock-1221293664-1-1-1.jpg" alt=""></a>
+            <a href="data-sci.html"><img
+                    src="https://graduate.northeastern.edu/resources/wp-content/uploads/sites/4/2020/06/iStock-1221293664-1-1-1.jpg"
+                    alt=""></a>
             <h4>data science</h4>
         </div>
         <div class="fe-box">
-            <a href="software-eng.html"><img src="https://assets.website-files.com/5feac9d1cc32ae279e536778/601a780f9ff10b04beb1ce21_10%20Best%20Practices%20for%20Software%20Testing%20Projects.png" alt="">
+            <a href="software-eng.html"><img
+                    src="https://assets.website-files.com/5feac9d1cc32ae279e536778/601a780f9ff10b04beb1ce21_10%20Best%20Practices%20for%20Software%20Testing%20Projects.png"
+                    alt="">
             </a>
             <h4>software testing</h4>
         </div>
         <div class="fe-box">
-            <a href="web-dev.html"><img src="#"></a>
+            <a href="web-dev.html"><img src="https://images.surferseo.art/9602bc4b-cfc4-410e-b291-611d478c9d6a.png"></a>
             <h4>web development</h4>
         </div>
         <div class="fe-box">
-            <a href="communication.html"><img src="https://img.freepik.com/free-vector/communication-cartoon-design-concept-with-social-networks-signs-young-pare-talking-each-other-flat-vector-illustration_1284-80585.jpg" alt="">
+            <a href="communication.html"><img
+                    src="https://img.freepik.com/free-vector/communication-cartoon-design-concept-with-social-networks-signs-young-pare-talking-each-other-flat-vector-illustration_1284-80585.jpg"
+                    alt="">
             </a>
-             <h4>communication</h4>
+            <h4>communication</h4>
         </div>
     </section>
 
@@ -199,9 +199,9 @@
                     <h4>$567</h4>
                 </div>
             </div>
-           
+
             <div class="pro" id="p2">
-                <img src="https://sbr-technologies.com/wp-content/uploads/2021/07/MEAN-Stack-Development.jpeg" alt="">
+                <img src="https://jumpgrowth.com/wp-content/uploads/2020/02/mean-stacks-main.jpg" alt="">
                 <div class="des">
                     <span>WEB development</span>
                     <h5>MEAN</h5>
@@ -215,9 +215,10 @@
                     <h4>$567</h4>
                 </div>
             </div>
-            
+
             <div class="pro" id="p3">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-Y8Af2P1kvLlCzHlYewbMu7nr-z0FYlNctxFlDzHVzx5sSXoRBJpS7SMNIs4KqTBNqo&usqp=CAU" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-Y8Af2P1kvLlCzHlYewbMu7nr-z0FYlNctxFlDzHVzx5sSXoRBJpS7SMNIs4KqTBNqo&usqp=CAU"
+                    alt="">
                 <div class="des">
                     <span>data science</span>
                     <h5>r proggramming</h5>
@@ -232,7 +233,7 @@
                 </div>
             </div>
 
-             <div class="pro" id="p4">
+            <div class="pro" id="p4">
                 <img src="https://www.avanse.com/blogs/images/blogs-migration-169.jpg" alt="">
                 <div class="des">
                     <span>communication</span>
@@ -257,7 +258,7 @@
         <h2>23% discount off</h2>
         <button class="normal">explore more</button>
 
-       
+
     </section>
 
 
@@ -272,16 +273,16 @@
         </div>
     </section>
 
-    <footer class="section-p1"> 
+    <footer class="section-p1">
         <div class="col">
             <img class="logo" src="" alt="">
             <h4>Contact</h4>
             <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</P>
             <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
             <p><strong>Hours:</strong> 10:00 18:00, Mon - Sat</p>
-        
+
             <div class="follow">
-                <h4>Follow us</h4> 
+                <h4>Follow us</h4>
                 <div class="icon">
                     <i class="fab fa-facebook-f"></i> <i class="fab fa-twitter"></i>
                     <i class="fab fa-instagram"></i>
@@ -289,7 +290,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col">
             <h4>About</h4> <a href="#">About us</a>
             <a href="#">Delivery Information</a>
@@ -297,7 +298,7 @@
             <a href="#">Terms & Conditions</a>
             <a href="#">Contact Us</a>
         </div>
-        
+
         <div class="col">
             <h4>My Account</h4>
             <a href="#">Sign In</a>
@@ -306,198 +307,129 @@
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
         </div>
-        
+
 
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-            <img src="" alt="">
-            <img src="" alt="">
-            </div> 
-                <p>Secured Payment Gateways </p>
+                <img src="" alt="">
                 <img src="" alt="">
             </div>
-            
-            <div class="copyright">
-            <p>> 2023, Tech2 etc HTML CSS Ecommerce Template</p> 
+            <p>Secured Payment Gateways </p>
+            <img src="" alt="">
         </div>
-        </footer>
 
-       
+        <div class="copyright">
+            <p>> 2023, Tech2 etc HTML CSS Ecommerce Template</p>
+        </div>
+    </footer>
+
+
     <script type="module" src="login.js"></script>
     <script type="module" src="google.js"></script>
     <script type="module">
-            
- /*   // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-    import { getAuth,createUserWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-   
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
-  authDomain: "auth-courseofferings.firebaseapp.com",
-  databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "auth-courseofferings",
-  storageBucket: "auth-courseofferings.firebasestorage.app",
-  messagingSenderId: "484839394488",
-  appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
-  measurementId: "G-PMQ4DGFSBZ"
-};
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
+        // Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
 
-    
-var username=document.getElementById("username");
-//var login_email=document.getElementById("login-email");
-var register_email=document.getElementById("register-email");
-//var login_password=document.getElementById("login-password");
-var register_password=document.getElementById("register-password");
-
-
-
-window.signup=function (e) {
-    e.preventDefault();
-    var obj={
-        username:username.value,
-        email:register_email.value,
-        password:register_password.value
-    
-    }
-
-    createUserWithEmailAndPassword(auth,obj.email,obj.password)
-        
-        .then(function(success) {
-
-            
-        var user_01 = firebase.auth().currentUser;
-
-        user_01.updateProfile({
-        username: username.value,
-            });
-
-
-            alert("signup successfully")
-            window.location.assign('./index.html');
-            
-        })
-        .catch(function(err) {
-            alert("error"+err)
-            
-        })
-
-        console.log(obj);
-    
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
+            authDomain: "auth-courseofferings.firebaseapp.com",
+            databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "auth-courseofferings",
+            storageBucket: "auth-courseofferings.firebasestorage.app",
+            messagingSenderId: "484839394488",
+            appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
+            measurementId: "G-PMQ4DGFSBZ"
         };
-    
- */
-// Import Firebase modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
 
-// Your Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
-  authDomain: "auth-courseofferings.firebaseapp.com",
-  databaseURL: "https://auth-courseofferings-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "auth-courseofferings",
-  storageBucket: "auth-courseofferings.firebasestorage.app",
-  messagingSenderId: "484839394488",
-  appId: "1:484839394488:web:b9d2f93946b5f945eab84d",
-  measurementId: "G-PMQ4DGFSBZ"
-};
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app); // Fix: Use app instance
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app); // Fix: Use app instance
+        // Get input elements
+        var username = document.getElementById("username");
+        var register_email = document.getElementById("register-email");
+        var register_password = document.getElementById("register-password");
 
-// Get input elements
-var username = document.getElementById("username");
-var register_email = document.getElementById("register-email");
-var register_password = document.getElementById("register-password");
+        window.signup = function (e) {
+            e.preventDefault();
 
-window.signup = function (e) {
-    e.preventDefault();
+            var obj = {
+                username: username.value,
+                email: register_email.value,
+                password: register_password.value
+            };
 
-    var obj = {
-        username: username.value,
-        email: register_email.value,
-        password: register_password.value
-    };
+            createUserWithEmailAndPassword(auth, obj.email, obj.password)
+                .then((userCredential) => {
+                    const user_01 = userCredential.user;
 
-    createUserWithEmailAndPassword(auth, obj.email, obj.password)
-        .then((userCredential) => {
-            const user_01 = userCredential.user;
+                    // Fix: Use updateProfile with correct key "displayName"
+                    return updateProfile(user_01, {
+                        displayName: obj.username
+                    });
+                })
+                .then(() => {
+                    alert("Signup successful!");
+                    window.location.assign('./index.html');
+                })
+                .catch((err) => {
+                    alert("Error: " + err.message);
+                });
 
-            // Fix: Use updateProfile with correct key "displayName"
-            return updateProfile(user_01, {
-                displayName: obj.username
-            });
-        })
-        .then(() => {
-            alert("Signup successful!");
-            window.location.assign('./index.html');
-        })
-        .catch((err) => {
-            alert("Error: " + err.message);
-        });
+            console.log('new user crated obj', obj);
+        };
 
-    console.log('obj',obj);
-};
 
-    
-    auth.onAuthStateChanged(user => {
-        //console.log("running");
-       // console.log(user.email);
-        console.log('displayName',user);
-        if(user){
-            document.getElementById("login-button").style.display='none';
-            document.getElementById("logout-button").style.display='block';
-            //console.log(auth.currentUser);
-            document.title = "PROFILE PAGE";
+        auth.onAuthStateChanged(user => {
+            //console.log("running");
+            console.log(user);
+            console.log('displayName', user);
+            if (user) {
+                document.getElementById("login-button").style.display = 'none';
+                document.getElementById("logout-button").style.display = 'block';
+                console.log(auth.currentUser);
+                document.title = "PROFILE PAGE";
             }
-        else{
-          //  localStorage.setItem('currentuser',"");
+            else {
+                //  localStorage.setItem('currentuser',"");
+            }
+        })
+
+        console.log("cuurentuser=", localStorage.getItem('currentuser'));
+
+
+        function logout() {
+            auth.signOut();
+            //localStorage.setItem('currentuser',"");
+            document.getElementById("login-button").style.display = 'block';
+            document.getElementById("logout-button").style.display = 'none';
+            window.location.assign('./index.html');
+
         }
-        })   
-    
-console.log("cuurentuser=",localStorage.getItem('currentuser'));
-
-    
-function logout(){
-    auth.signOut();
-    //localStorage.setItem('currentuser',"");
-    document.getElementById("login-button").style.display='block';
-    document.getElementById("logout-button").style.display='none';
-    window.location.assign('./index.html');
-    
-}
-    document.getElementById("logout-button").addEventListener('click',logout);
-    
+        document.getElementById("logout-button").addEventListener('click', logout);
 
 
 
 
 
-        </script>
-        <script  src="script.js"></script>
-       <!-- <script type="text/javascript" src="https://cdn.c360a.salesforce.com/beacon/c360a/4d494283-7de4-4700-bd76-582092969838/scripts/c360a.min.js"></script>
+
+    </script>
+    <script src="script.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.c360a.salesforce.com/beacon/c360a/4d494283-7de4-4700-bd76-582092969838/scripts/c360a.min.js"></script>
         <script type="text/javascript" src="https://cdn.evgnet.com/beacon/aethereusconsulting/education/scripts/evergage.min.js"></script>-->
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        
-   <!---<script  src="https://cdn.c360a.salesforce.com/beacon/c360a/20a2ffff-e983-428e-af4f-6bc85ccbae4a/scripts/c360a.min.js" defer></script>-->
-    <script src="https://cdn.c360a.salesforce.com/beacon/c360a/8a63a2ff-c0de-4503-83dd-eb517c01bd30/scripts/c360a.min.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!---<script  src="https://cdn.c360a.salesforce.com/beacon/c360a/20a2ffff-e983-428e-af4f-6bc85ccbae4a/scripts/c360a.min.js" defer></script>-->
+    <script
+        src="https://cdn.c360a.salesforce.com/beacon/c360a/8a63a2ff-c0de-4503-83dd-eb517c01bd30/scripts/c360a.min.js"
+        defer></script>
 </body>
+
 </html>
