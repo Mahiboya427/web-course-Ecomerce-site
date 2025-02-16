@@ -29,18 +29,101 @@
     //collection reference
     const colRef=collection(db,'courses')
     //get collection data
-    
+
+    //localStorage.clear();
+
     const reply_click=(e)=>{
         e.preventDefault();
         console.log("hello");
     }
-    
+    /*
     let contactid=localStorage.getItem('currentuser');
     console.log("contactid",contactid); 
 
     let items=JSON.parse(localStorage.getItem(contactid));
     console.log(items.courseitems);
-        
+*/
+document.addEventListener("DOMContentLoaded", () => {
+    // Get current user's email from localStorage
+    const contactid = localStorage.getItem("currentuser");
+    //console.log("contactid", contactid);
+  
+    // Retrieve the stored object that contains course items for the current user.
+    // Here, userData.courseitems is an array of course objects.
+    const userData = JSON.parse(localStorage.getItem(contactid));
+    let courses = userData?.courseitems || [];
+    //console.log("Courses:", courses);
+  
+    // Get the container where we want to display the course cards
+    const courseContainer = document.querySelector(".course-card");
+    if (!courseContainer) {
+      console.error("Container element '.course-card' not found.");
+      return;
+    }
+  
+    // Function to render the courses on the page
+    function renderCourses() {
+      // Clear any existing content
+      courseContainer.innerHTML = "";
+      courses.forEach((course, i) => {
+        // Create a new div element for the course card
+        let newdiv = document.createElement("div");
+        newdiv.classList.add("card");
+        // Set a data attribute with the course id for easier access when deleting
+        newdiv.dataset.courseId = course.id;
+  
+        newdiv.innerHTML = `
+          <img class="course-pic" id="course-pic${i}" src="" alt="Course Picture"><br><br>
+          <div class="cd-part1">
+            <label>Course ID:</label> <u><span id="course-id${i}"></span></u><br>
+            <label>Course Title:</label> <u><span id="course-title${i}"></span></u><br>
+            <label>Course Category:</label> <u><span id="course-category${i}"></span></u><br>
+            <label>Course Price:</label> <u><span id="course-price${i}"></span></u><br>
+            <label>Course Duration:</label> <u><span id="course-duration${i}"></span></u><br>
+            <button class="remove" type="button" onClick="delete_element('${course.id}', event)">Delete Course</button>
+          </div>
+        `;
+  
+        // Append the new card to the container
+        courseContainer.appendChild(newdiv);
+  
+        // Populate the card with course details
+        document.getElementById(`course-id${i}`).textContent = course.id;
+        document.getElementById(`course-title${i}`).textContent = course.title;
+        document.getElementById(`course-category${i}`).textContent = course.category;
+        document.getElementById(`course-price${i}`).textContent = course.price;
+        document.getElementById(`course-duration${i}`).textContent = course.duration;
+        document.getElementById(`course-pic${i}`).src = course.pic;
+      });
+    }
+  
+    // Initial render of courses
+    renderCourses();
+  
+    // Delete function - must be in global scope to be callable from inline onClick
+    window.delete_element = (courseId, event) => {
+      console.log("Deleting course with id:", courseId);
+      
+      // Remove the course from the courses array
+      courses = courses.filter(course => course.id !== courseId);
+      
+      // Update localStorage with the new courses array
+      const updatedData = { courseitems: courses };
+      localStorage.setItem(contactid, JSON.stringify(updatedData));
+      
+      // Remove the course card from the display.
+      // (Option 1: Re-render all courses)
+      renderCourses();
+      
+      // (Option 2: Remove the specific card element if you prefer:)
+      // const cardElement = event.target.closest(".card");
+      // if(cardElement) cardElement.remove();
+    };
+  });
+    
+      
+
+    /*    
     getDocs(colRef)
         .then((snapshot)=>{
             let courses=[]   
@@ -95,12 +178,12 @@
             course_id.textContent=courses[i].id
             course_title.textContent=courses[i].title
             course_category.textContent=courses[i].category
-           // course_heading.textContent=courses[i].heading
-           // course_rating.textContent=courses[i].rating
+           course_heading.textContent=courses[i].heading
+            course_rating.textContent=courses[i].rating
             course_price.textContent=courses[i].price
             course_duration.textContent=courses[i].duration
             course_pic.src=courses[i].pic
-           // docid.textContent=courses[i].doc_id
+             docid.textContent=courses[i].doc_id
                         
            }}
             
@@ -109,7 +192,8 @@
             
         })
         .catch((err)=>{
-            console.log(err.massage);
+            console.log(err.message);
         })
 
         
+*/

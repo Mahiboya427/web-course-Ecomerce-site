@@ -22,7 +22,7 @@
     };
   
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+    //const app = initializeApp(firebaseConfig);
     //init service
     const db=getFirestore();
     //collection reference
@@ -30,7 +30,7 @@
     //get collection data
    
 
-    console.log("remove element");
+    //console.log("remove element");
 
     /*let courseid=document.getElementById("courseid");
     

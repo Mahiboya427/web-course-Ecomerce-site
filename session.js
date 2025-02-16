@@ -21,13 +21,13 @@ const currentUser = localStorage.getItem('currentuser');
 
 // If no user is logged in (null or empty string), show login button and hide logout button
 if (!currentUser || currentUser.trim() === '') {
-    console.log("User is empty or not logged in.");
+    //console.log("User is empty or not logged in.");
     document.getElementById("login-button").style.display = 'block';
     document.getElementById("logout-button").style.display = 'none';
    // alert('Go to homepage and Login');
 } else {
     // If a user is logged in, hide login button and show logout button
-    console.log("Logged in user:", currentUser);
+    //console.log("Logged in user:", currentUser);
     document.getElementById("login-button").style.display = 'none';
     document.getElementById("logout-button").style.display = 'block';
     
@@ -36,7 +36,6 @@ if (!currentUser || currentUser.trim() === '') {
 
 auth.onAuthStateChanged(user => {
     console.log("session running");
-    console.log("session",user.email);
     if(user){
         document.getElementById("login-button").style.display='none';
         document.getElementById("logout-button").style.display='block';
