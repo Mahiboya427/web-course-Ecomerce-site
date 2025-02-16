@@ -1,12 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getAuth,createUserWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCxf3ikoJWkzHtvUCBoTnNjT1mRg8e4NzU",
   authDomain: "auth-courseofferings.firebaseapp.com",
@@ -39,7 +33,7 @@ if (!currentUser || currentUser.trim() === '') {
     
 }
 
-/*    
+
 auth.onAuthStateChanged(user => {
     console.log("session running");
     console.log("session",user.email);
@@ -49,7 +43,7 @@ auth.onAuthStateChanged(user => {
         }
     })   
 
-*/
+
 function logout(){
 auth.signOut();
 document.getElementById("login-button").style.display='block';

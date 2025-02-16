@@ -60,6 +60,8 @@ window.login=function (e) {
         console.log(user.email);
         localStorage.setItem('currentuser',user.email);
         localStorage.setItem('currentuserName',user.displayName);
+        localStorage.setItem('360Email',user.email);
+        localStorage.setItem('360userName',user.displayName);
         console.log("cuurentuser=",localStorage.getItem('currentuser'));
         console.log("currentuserName=",localStorage.getItem('currentuserName'));
         alert("login sucessfull") ;

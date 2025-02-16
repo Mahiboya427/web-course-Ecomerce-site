@@ -29,7 +29,6 @@ btnpopup.addEventListener('click', () => {
 iconclose.addEventListener('click', () => { 
     wrapper.classList.remove('active-popup'); 
 });
-/*
 
 const p1=()=>{
     console.log("p1 running");
@@ -57,4 +56,3 @@ const p4=()=>{
     window.location.assign('./element16.html');
 }
 document.getElementById('p4').addEventListener('click',p4);
-*/

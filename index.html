@@ -388,20 +388,18 @@
 
         auth.onAuthStateChanged(user => {
             //console.log("running");
-            console.log(user);
-            console.log('displayName', user);
             if (user) {
                 document.getElementById("login-button").style.display = 'none';
                 document.getElementById("logout-button").style.display = 'block';
-                console.log(auth.currentUser);
                 document.title = "PROFILE PAGE";
             }
             else {
-                //  localStorage.setItem('currentuser',"");
+                  localStorage.setItem('currentuser',"");
+                  localStorage.setItem('currentuserName',"");
             }
         })
 
-        console.log("cuurentuser=", localStorage.getItem('currentuser'));
+        console.log("cuurentuser : ", localStorage.getItem('currentuser'));
 
 
         function logout() {
