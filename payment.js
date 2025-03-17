@@ -96,10 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 async function postData() {
     try {
-        const response = await fetch('https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo', {
+        const response = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -111,15 +110,26 @@ async function postData() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const data = await response.json();
+        // ✅ Log raw response before parsing
+        const textResponse = await response.text();
+        console.log("RAW RESPONSE:", textResponse);
+
+        // ✅ Check if response is empty
+        if (!textResponse || textResponse.trim() === "") {
+            throw new Error("Empty response received from server.");
+        }
+
+        // ✅ Parse JSON safely
+        const data = JSON.parse(textResponse);
         console.log("RESULT", data);
-        return data; // Now correctly inside an async function
+        return data; 
+
     } catch (error) {
         console.error("Error:", error);
     }
 }
 
-// Call the function to execute the fetch
+// Call the function
 postData();
 
 
