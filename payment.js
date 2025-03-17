@@ -97,6 +97,33 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+async function postData() {
+    try {
+        const response = await fetch('https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ "NAME": "MAHESH" }) // Convert object to JSON string
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("RESULT", data);
+        return data; // Now correctly inside an async function
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+// Call the function to execute the fetch
+postData();
+
+
+/*
 async function authenticateSalesforce() {
     const url = "https://ae1709725408312.lightning.force.com/oauth2/token";
 
@@ -135,7 +162,7 @@ authenticateSalesforce();
 
 
 
-
+*/
 
 
 
