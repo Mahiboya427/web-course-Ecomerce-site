@@ -96,6 +96,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+const rawData = JSON.parse(localStorage.getItem("order")); // Use stored order data
+
+    if (!rawData) {
+        console.error("No order data found.");
+    }
+
+    // Extract course items
+    const courses = JSON.parse(rawData.EL);
+
+    // Prepare user details (common data)
+    const userDetails = {
+        user: rawData.user || "Guest",
+        email: rawData.email.trim().toLowerCase(),
+        firstName: rawData.firstname.trim() || "N/A",
+        lastName: rawData.lastname.trim() || "N/A",
+        address: rawData.address.trim(),
+        landmark: rawData.landmark.trim() || "N/A",
+        city: rawData.city.trim(),
+        state: rawData.state.trim(),
+        country: rawData.country.trim(),
+        zipcode: rawData.zipcode.trim(),
+        phone: rawData.phone.replace(/\D/g, ""), // Remove non-numeric chars
+    };
+
+    console.log("User Details:", userDetails);
+
+    // Send a separate request for each course
+    courses.forEach(async (course, index) => {
+        const courseData = {
+            ...userDetails, // Include user details
+            course_id: course.id,
+            course_title: course.title.trim(),
+            course_category: course.category.trim(),
+            course_heading: course.heading.trim(),
+            course_rating: parseFloat(course.rating),
+            course_price: parseFloat(course.price.replace(/[^\d.]/g, "")), // Convert price to number
+            course_duration: course.duration.trim(),
+            course_image: course.pic
+        };
+
+        console.log(`Sending Request ${index + 1}:`, courseData);  });
+/*
 async function postData() {
     try {
         const response = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
@@ -113,7 +156,7 @@ async function postData() {
         // ✅ Log raw response before parsing
         const textResponse = await response.text();
         console.log("RAW RESPONSE:", textResponse);
-
+a
         // ✅ Check if response is empty
         if (!textResponse || textResponse.trim() === "") {
             throw new Error("Empty response received from server.");
