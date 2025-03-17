@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 async function authenticateSalesforce() {
-    const url = "https://login.salesforce.com/services/oauth2/token";
+    const url = "https://ae1709725408312.lightning.force.com/oauth2/token";
 
     const requestBody = {
         grant_type: "password",
