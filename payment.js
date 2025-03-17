@@ -97,16 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 async function authenticateSalesforce() {
     const clientId = "3MVG9jSKmPAPVo2JJ106tjUnx2RDd1ioHJvwF_AsO83SOvOHs12FqX5gh3FzFlnznPxkFoRWewA.G8Ndv.XMN";
     const clientSecret = "27E5D743D4864F1E4009D6617DC2F7FE4A858CD7F1EE2612D5062F14BF6EE99B";
     const username = "dipanshu.diwakerdcdo@aethereus.com";
-    const password = "Salesforce@00"; // Consider using environment variables or server-side storage
+    const password = "Salesforce@00"; // Consider storing in environment variables
 
     const url = "https://login.salesforce.com/services/oauth2/token";
 
-    const params = new URLSearchParams({
+    const requestBody = JSON.stringify({
         grant_type: "password",
         client_id: clientId,
         client_secret: clientSecret,
@@ -118,9 +117,9 @@ async function authenticateSalesforce() {
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
             },
-            body: params
+            body: requestBody
         });
 
         if (!response.ok) {
