@@ -201,11 +201,11 @@ async function postData() {
         }
 
         // Send transactions
-        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/mulesoft/transaction", transactionData);
+        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", transactionData);
         console.log("Transaction Response:", transactionResponse);
 
         // Send orders
-        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/mulesoft/order", orderData);
+        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderData);
         console.log("Order Response:", orderResponse);
 
     } catch (error) {
