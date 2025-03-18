@@ -35,7 +35,8 @@ const reply_click=(e)=>{
 }
 */
 
-
+let userTransaction;
+let orderItems;
 document.addEventListener("DOMContentLoaded", () => {
     // Retrieve the current user's email (used as the key)
     const contactid = localStorage.getItem("currentuser");
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const orderKey = generateUniqueKey("ORDER");
 
         // Merged User & Transaction Object
-        const userTransaction = {
+        userTransaction = {
             "data": [{
                 id: userTransactionKey,
                 user: rawData.user,
@@ -126,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Order Items (with unique keys for each item)
-        const orderItems = {
+        orderItems = {
             "data": JSON.parse(rawData.EL).map(item => ({
                 id: orderKey,
                 TransactionKey: userTransactionKey,
@@ -201,11 +202,11 @@ async function postData() {
         }
 
         // Send transactions
-        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", transactionData);
+        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", userTransaction);
         console.log("Transaction Response:", transactionResponse);
 
         // Send orders
-        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderData);
+        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderItems);
         console.log("Order Response:", orderResponse);
 
     } catch (error) {
