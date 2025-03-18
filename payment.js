@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         postData();
 
 
-        window.location.assign('./final.html');
+        //window.location.assign('./final.html');
 
     };
 
