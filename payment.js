@@ -1,4 +1,4 @@
-
+/*
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 
@@ -34,6 +34,8 @@ const reply_click=(e)=>{
     console.log("hello");
 }
 */
+
+
 document.addEventListener("DOMContentLoaded", () => {
     // Retrieve the current user's email (used as the key)
     const contactid = localStorage.getItem("currentuser");
@@ -51,11 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Calculate the final price by summing the price from each course
     let finalprice = 0;
     courses.forEach(course => {
+        console.log(course.price);
+
         // Remove any non-numeric characters (like "$") and convert to a number
         const priceNumber = Number(course.price.replace(/[^0-9.]/g, ''));
         finalprice += priceNumber;
     });
-    console.log("Final price:", finalprice);
+    console.log("Final price:", finalprice + 40);
 
     // Update the price display on the page
     document.getElementById('price').textContent = '₹ ' + finalprice;
@@ -76,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             state: document.getElementById('state').value,
             country: document.getElementById('country').value,
             phone: document.getElementById('phone').value,
-            amount: document.getElementById('total-price').innerText,
+            amount: finalprice + 40,
             EL: itemsstring
         };
 
@@ -84,7 +88,70 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("order", JSON.stringify(orderData));
         console.log("Order Data:", orderData);
         localStorage.removeItem(contactid);
+
+        const rawData = orderData; // Use stored order data
+        console.log(rawData);
+        // Extracting the structured data
+
+        // Function to generate a unique key
+        const generateUniqueKey = (prefix = "ID") => {
+            return `${prefix}_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+        };
+
+        // Get the current date in ISO format
+        const currentDate = new Date().toISOString();
+
+        // Generate Unique Keys
+        const userTransactionKey = generateUniqueKey("USER_TRANSACTION");
+        const orderKey = generateUniqueKey("ORDER");
+
+        // Merged User & Transaction Object
+        const userTransaction = {
+            "data": [{
+                id: userTransactionKey,
+                user: rawData.user,
+                email: rawData.email,
+                firstname: rawData.firstname || "N/A",
+                lastname: rawData.lastname || "N/A",
+                phone: rawData.phone,
+                address: rawData.address,
+                landmark: rawData.landmark || "N/A",
+                city: rawData.city,
+                state: rawData.state,
+                country: rawData.country,
+                zipcode: rawData.zipcode,
+                amount: rawData.amount,
+                eventdate: currentDate  // Add current date
+            }]
+        };
+
+        // Order Items (with unique keys for each item)
+        const orderItems = {
+            "data": JSON.parse(rawData.EL).map(item => ({
+                id: orderKey,
+                TransactionKey: userTransactionKey,
+                title: item.title,
+                category: item.category,
+                heading: item.heading,
+                rating: item.rating,
+                price: item.price,
+                duration: item.duration,
+                pic: item.pic,
+                eventdate: currentDate  // Add current date
+            }))
+        };
+
+
+        // Debugging Output
+        console.log("User + Transaction Data:", userTransaction);
+        console.log("Order Items:", orderItems);
+
+        // Call the function
+        postData();
+
+
         window.location.assign('./final.html');
+
     };
 
     // Add event listener to the "Continue to Shipping" button
@@ -96,48 +163,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+async function postData() {
+    try {
+        // First API call - Get access token
+        const authResponse = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ "NAME": "MAHESH" })
+        });
 
-const rawData = JSON.parse(localStorage.getItem("order")); // Use stored order data
+        if (!authResponse.ok) throw new Error(`Auth Error: ${authResponse.status}`);
 
-    if (!rawData) {
-        console.error("No order data found.");
+        const authData = await authResponse.json();
+        console.log("Auth Response:", authData);
+
+        // Extract required values
+        const { access_token, instance_url } = authData;
+        if (!access_token || !instance_url) throw new Error("Missing token or instance URL.");
+
+        // Prepare headers for next API calls
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${access_token}`);
+        // Function to send POST request
+        async function sendPostRequest(endpoint, data) {
+            const response = await fetch(`${instance_url}${endpoint}`, {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify(data),
+                redirect: "follow"
+            });
+
+            if (!response.ok) throw new Error(`POST Error ${endpoint}: ${response.status}`);
+            return response.json();
+        }
+
+        // Send transactions
+        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/mulesoft/transaction", transactionData);
+        console.log("Transaction Response:", transactionResponse);
+
+        // Send orders
+        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/mulesoft/order", orderData);
+        console.log("Order Response:", orderResponse);
+
+    } catch (error) {
+        console.error("Error:", error);
     }
+}
 
-    // Extract course items
-    const courses = JSON.parse(rawData.EL);
 
-    // Prepare user details (common data)
-    const userDetails = {
-        user: rawData.user || "Guest",
-        email: rawData.email.trim().toLowerCase(),
-        firstName: rawData.firstname.trim() || "N/A",
-        lastName: rawData.lastname.trim() || "N/A",
-        address: rawData.address.trim(),
-        landmark: rawData.landmark.trim() || "N/A",
-        city: rawData.city.trim(),
-        state: rawData.state.trim(),
-        country: rawData.country.trim(),
-        zipcode: rawData.zipcode.trim(),
-        phone: rawData.phone.replace(/\D/g, ""), // Remove non-numeric chars
-    };
 
-    console.log("User Details:", userDetails);
 
-    // Send a separate request for each course
-    courses.forEach(async (course, index) => {
-        const courseData = {
-            ...userDetails, // Include user details
-            course_id: course.id,
-            course_title: course.title.trim(),
-            course_category: course.category.trim(),
-            course_heading: course.heading.trim(),
-            course_rating: parseFloat(course.rating),
-            course_price: parseFloat(course.price.replace(/[^\d.]/g, "")), // Convert price to number
-            course_duration: course.duration.trim(),
-            course_image: course.pic
-        };
-
-        console.log(`Sending Request ${index + 1}:`, courseData);  });
 /*
 async function postData() {
     try {
@@ -174,6 +252,16 @@ a
 
 // Call the function
 postData();
+
+
+
+
+
+
+
+
+
+
 
 
 /*
