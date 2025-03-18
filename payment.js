@@ -202,11 +202,11 @@ async function postData() {
         }
 
         // Send transactions
-        const transactionResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", userTransaction);
+        const transactionResponse = await sendPostRequest("h02wg9lcm8yd09jsh14tkmdggm.c360a.salesforce.com/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", userTransaction);
         console.log("Transaction Response:", transactionResponse);
 
         // Send orders
-        const orderResponse = await sendPostRequest("/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderItems);
+        const orderResponse = await sendPostRequest("h02wg9lcm8yd09jsh14tkmdggm.c360a.salesforce.com/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderItems);
         console.log("Order Response:", orderResponse);
 
     } catch (error) {
