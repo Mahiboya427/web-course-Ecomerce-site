@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Order Items (with unique keys for each item)
         orderItems = {
             "data": JSON.parse(rawData.EL).map(item => ({
-                id: orderKey,
+                id: generateUniqueKey("ORDER"),
                 TransactionKey: userTransactionKey,
                 title: item.title,
                 category: item.category,
