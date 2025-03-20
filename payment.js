@@ -147,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("'end-flow' button not found");
     }
 });
-
 async function postData() {
     try {
         if (!finalsendbody || typeof finalsendbody !== "object") {
@@ -155,7 +154,6 @@ async function postData() {
         }
 
         const jsonPayload = JSON.stringify(finalsendbody);
-
         console.log("📤 Sending JSON Payload:", jsonPayload);
 
         const authResponse = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
@@ -164,20 +162,18 @@ async function postData() {
             body: jsonPayload
         });
 
-        if (!authResponse.ok) {
-            throw new Error(`❌ Auth Error: ${authResponse.status}`);
-        }
-
+        // Ensure response is valid JSON
         const authData = await authResponse.json();
         console.log("✅ Server Response:", authData);
 
         if (authData.success) {
+            console.log("🔑 Salesforce Access Token:", authData.salesforceAccessToken);
+            console.log("🔑 A360 Access Token:", authData.a360AccessToken);
             console.log("🛒 Transaction Response:", authData.transactionResponse);
             console.log("📦 Order Response:", authData.orderResponse);
         } else {
-            console.error("⚠️ API Error:", authData.message);
+            console.error("⚠️ API Error:", authData.message || "Unknown error");
         }
-
     } catch (error) {
         console.error("❌ Error:", error.message);
     }
