@@ -317,13 +317,6 @@ authenticateSalesforce();
 
 
 
-
-
-
-
-
-
-
 /*
 let contactid=localStorage.getItem('currentuser');
 console.log(contactid); 
