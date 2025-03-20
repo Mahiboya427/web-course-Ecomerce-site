@@ -37,6 +37,7 @@ const reply_click=(e)=>{
 
 let userTransaction;
 let orderItems;
+let finalsendbody;
 document.addEventListener("DOMContentLoaded", () => {
     // Retrieve the current user's email (used as the key)
     const contactid = localStorage.getItem("currentuser");
@@ -146,7 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // Debugging Output
         console.log("User + Transaction Data:", userTransaction);
         console.log("Order Items:", orderItems);
-
+        finalsendbody = {
+            "userTransaction":userTransaction,
+            "orderItems":orderItems
+        }
         // Call the function
         postData();
 
@@ -163,54 +167,39 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("'end-flow' button not found");
     }
 });
-
 async function postData() {
     try {
-        // First API call - Get access token
+
+        // ✅ First API call - Send data to SSJS server
         const authResponse = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ "NAME": "MAHESH" })
+            body: finalsendbody
         });
 
-        if (!authResponse.ok) throw new Error(`Auth Error: ${authResponse.status}`);
-
-        const authData = await authResponse.json();
-        console.log("Auth Response:", authData);
-
-        // Extract required values
-        const { access_token, instance_url } = authData;
-        if (!access_token || !instance_url) throw new Error("Missing token or instance URL.");
-
-        // Prepare headers for next API calls
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Authorization", `Bearer ${access_token}`);
-        // Function to send POST request
-        async function sendPostRequest(endpoint, data) {
-            const response = await fetch(`${endpoint}`, {
-                method: "POST",
-                headers: myHeaders,
-                body: data,
-                redirect: "follow"
-            });
-
-            if (!response.ok) throw new Error(`POST Error ${endpoint}: ${response.status}`);
-            return response.json();
+        // ✅ Handle HTTP errors
+        if (!authResponse.ok) {
+            throw new Error(`❌ Auth Error: ${authResponse.status}`);
         }
 
-        // Send transactions
-        const transactionResponse = await sendPostRequest("https://h02wg9lcm8yd09jsh14tkmdggm.c360a.salesforce.com/api/v1/ingest/sources/websiteUserPurchases/UserTransaction", userTransaction);
-        console.log("Transaction Response:", transactionResponse);
+        // ✅ Parse JSON response
+        const authData = await authResponse.json();
 
-        // Send orders
-        const orderResponse = await sendPostRequest("https://h02wg9lcm8yd09jsh14tkmdggm.c360a.salesforce.com/api/v1/ingest/sources/websiteUserPurchases/OrderItem", orderItems);
-        console.log("Order Response:", orderResponse);
+        // ✅ Log full server response in console
+        console.log("✅ Server Response:", authData);
+
+        // ✅ Log Transaction & Order responses separately (if available)
+        if (authData.success) {
+            console.log("🛒 Transaction Response:", authData.transactionResponse);
+            console.log("📦 Order Response:", authData.orderResponse);
+        } else {
+            console.error("⚠️ API Error:", authData.message);
+        }
 
     } catch (error) {
-        console.error("Error:", error);
+        console.error("❌ Error:", error);
     }
 }
 
