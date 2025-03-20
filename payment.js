@@ -176,7 +176,7 @@ async function postData() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: finalsendbody
+            body: JSON.stringify(finalsendbody)
         });
 
         // ✅ Handle HTTP errors
