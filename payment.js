@@ -167,8 +167,21 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("'end-flow' button not found");
     }
 });
+
 async function postData() {
     try {
+        // ✅ Ensure finalsendbody is a valid JSON object
+        if (!finalsendbody || typeof finalsendbody !== "object") {
+            throw new Error("❌ Invalid request payload: finalsendbody is not an object.");
+        }
+
+        // ✅ Convert finalsendbody to JSON safely
+        const jsonPayload = JSON.stringify({
+            userTransaction: finalsendbody.userTransaction || {},
+            orderItems: finalsendbody.orderItems || {}
+        });
+
+        console.log("📤 Sending JSON Payload:", jsonPayload);
 
         // ✅ First API call - Send data to SSJS server
         const authResponse = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
@@ -176,7 +189,7 @@ async function postData() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(finalsendbody)
+            body: jsonPayload
         });
 
         // ✅ Handle HTTP errors
@@ -199,7 +212,7 @@ async function postData() {
         }
 
     } catch (error) {
-        console.error("❌ Error:", error);
+        console.error("❌ Error:", error.message);
     }
 }
 
