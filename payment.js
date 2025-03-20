@@ -34,132 +34,112 @@ const reply_click=(e)=>{
     console.log("hello");
 }
 */
-
 let userTransaction;
 let orderItems;
 let finalsendbody;
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Retrieve the current user's email (used as the key)
     const contactid = localStorage.getItem("currentuser");
-    console.log("contactid:", contactid);
+    console.log("Contact ID:", contactid);
 
-    // Retrieve the stored object with course items
     const userData = JSON.parse(localStorage.getItem(contactid));
-    // userData.courseitems is expected to be an array of course objects
     const courses = userData?.courseitems || [];
-    console.log("Stored courses:", courses);
+    console.log("Stored Courses:", courses);
 
-    // Convert the courses array to a JSON string for order submission if needed
-    const itemsstring = JSON.stringify(courses);
-
-    // Calculate the final price by summing the price from each course
     let finalprice = 0;
     courses.forEach(course => {
-        console.log(course.price);
-
-        // Remove any non-numeric characters (like "$") and convert to a number
         const priceNumber = Number(course.price.replace(/[^0-9.]/g, ''));
         finalprice += priceNumber;
     });
-    console.log("Final price:", finalprice + 40);
 
-    // Update the price display on the page
+    console.log("Final Price:", finalprice + 40);
     document.getElementById('price').textContent = '₹ ' + finalprice;
     document.getElementById('total-price').textContent = '₹ ' + (finalprice + 40);
 
     // --- Order Submission Function ---
     const addorder = () => {
-        // Create an order object with form values and calculated price
         const orderData = {
-            user: localStorage.getItem('currentuser'),
+            user: contactid,
             email: document.getElementById('email').value,
-            firstname: document.getElementById('first-name').value,
-            lastname: document.getElementById('last-name').value,
+            firstname: document.getElementById('first-name').value || "N/A",
+            lastname: document.getElementById('last-name').value || "N/A",
             address: document.getElementById('address').value,
-            landmark: document.getElementById('landmark').value,
+            landmark: document.getElementById('landmark').value || "N/A",
             zipcode: document.getElementById('zip-code').value,
             city: document.getElementById('city').value,
             state: document.getElementById('state').value,
             country: document.getElementById('country').value,
             phone: document.getElementById('phone').value,
             amount: finalprice + 40,
-            EL: itemsstring
+            EL: JSON.stringify(courses) // Ensure it's stored as a valid string
         };
 
-        // Save the order data to local storage under the key "order"
         localStorage.setItem("order", JSON.stringify(orderData));
         console.log("Order Data:", orderData);
         localStorage.removeItem(contactid);
 
-        const rawData = orderData; // Use stored order data
-        console.log(rawData);
-        // Extracting the structured data
+        const rawData = orderData;
+        console.log("Raw Data:", rawData);
 
-        // Function to generate a unique key
-        const generateUniqueKey = (prefix = "ID") => {
-            return `${prefix}_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-        };
-
-        // Get the current date in ISO format
+        // Generate Unique IDs
+        const generateUniqueKey = (prefix) => `${prefix}_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+        const userTransactionKey = generateUniqueKey("USER_TRANSACTION");
         const currentDate = new Date().toISOString();
 
-        // Generate Unique Keys
-        const userTransactionKey = generateUniqueKey("USER_TRANSACTION");
-        const orderKey = generateUniqueKey("ORDER");
-
-        // Merged User & Transaction Object
         userTransaction = {
             "data": [{
                 id: userTransactionKey,
                 user: rawData.user,
                 email: rawData.email,
-                firstname: rawData.firstname || "N/A",
-                lastname: rawData.lastname || "N/A",
+                firstname: rawData.firstname,
+                lastname: rawData.lastname,
                 phone: rawData.phone,
                 address: rawData.address,
-                landmark: rawData.landmark || "N/A",
+                landmark: rawData.landmark,
                 city: rawData.city,
                 state: rawData.state,
                 country: rawData.country,
                 zipcode: rawData.zipcode,
                 amount: rawData.amount,
-                eventdate: currentDate  // Add current date
+                eventdate: currentDate
             }]
         };
 
-        // Order Items (with unique keys for each item)
+        let courseData = [];
+        try {
+            courseData = JSON.parse(rawData.EL);
+        } catch (error) {
+            console.error("Error parsing rawData.EL:", error);
+        }
+
         orderItems = {
-            "data": JSON.parse(rawData.EL).map(item => ({
-                id: generateUniqueKey("ORDER"),
+            "data": courseData.map(item => ({
+                id: generateUniqueKey("ORDER"), // Unique ID for each order item
                 TransactionKey: userTransactionKey,
-                title: item.title,
-                category: item.category,
-                heading: item.heading,
-                rating: item.rating,
-                price: item.price,
-                duration: item.duration,
-                pic: item.pic,
-                eventdate: currentDate  // Add current date
+                title: item.title || "N/A",
+                category: item.category || "N/A",
+                heading: item.heading || "N/A",
+                rating: item.rating || "N/A",
+                price: item.price || "N/A",
+                duration: item.duration || "N/A",
+                pic: item.pic || "",
+                eventdate: currentDate
             }))
         };
 
-
-        // Debugging Output
-        console.log("User + Transaction Data:", userTransaction);
+        console.log("User Transaction Data:", userTransaction);
         console.log("Order Items:", orderItems);
+
         finalsendbody = {
-            "userTransaction":userTransaction,
-            "orderItems":orderItems
-        }
-        // Call the function
+            "userTransaction": userTransaction,
+            "orderItems": orderItems
+        };
+
+        console.log("Final Send Body:", finalsendbody);
         postData();
-
-
-        //window.location.assign('./final.html');
-
     };
 
-    // Add event listener to the "Continue to Shipping" button
+    // Add event listener to the button
     const finalend = document.getElementById('end-flow');
     if (finalend) {
         finalend.addEventListener('click', addorder);
@@ -170,40 +150,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function postData() {
     try {
-        // ✅ Ensure finalsendbody is a valid JSON object
         if (!finalsendbody || typeof finalsendbody !== "object") {
             throw new Error("❌ Invalid request payload: finalsendbody is not an object.");
         }
 
-        // ✅ Convert finalsendbody to JSON safely
-        const jsonPayload = JSON.stringify({
-            userTransaction: finalsendbody.userTransaction || {},
-            orderItems: finalsendbody.orderItems || {}
-        });
+        const jsonPayload = JSON.stringify(finalsendbody);
 
         console.log("📤 Sending JSON Payload:", jsonPayload);
 
-        // ✅ First API call - Send data to SSJS server
         const authResponse = await fetch("https://mc654h8rl6ypfygmq-qvwq3yrjrq.pub.sfmc-content.com/i3fyupqnxuo", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: jsonPayload
         });
 
-        // ✅ Handle HTTP errors
         if (!authResponse.ok) {
             throw new Error(`❌ Auth Error: ${authResponse.status}`);
         }
 
-        // ✅ Parse JSON response
         const authData = await authResponse.json();
-
-        // ✅ Log full server response in console
         console.log("✅ Server Response:", authData);
 
-        // ✅ Log Transaction & Order responses separately (if available)
         if (authData.success) {
             console.log("🛒 Transaction Response:", authData.transactionResponse);
             console.log("📦 Order Response:", authData.orderResponse);
