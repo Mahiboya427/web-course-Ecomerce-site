@@ -113,19 +113,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         orderItems = {
-            "data": courseData.map(item => ({
-                id: generateUniqueKey("ORDER"), // Unique ID for each order item
+            data: courseData.map(item => ({
+                id: generateUniqueKey("ORDER"),
                 TransactionKey: userTransactionKey,
                 title: item.title || "N/A",
                 category: item.category || "N/A",
                 heading: item.heading || "N/A",
                 rating: item.rating || "N/A",
-                price: item.price || "N/A",
+                price: typeof item.price === "string"
+                    ? parseFloat(item.price.replace(/\$/g, "")) || 0
+                    : Number(item.price) || 0,
                 duration: item.duration || "N/A",
                 pic: item.pic || "",
                 eventdate: currentDate
             }))
         };
+        
 
         console.log("User Transaction Data:", userTransaction);
         console.log("Order Items:", orderItems);
