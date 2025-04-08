@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     console.log("Final Price:", finalprice + 40);
-    document.getElementById('price').textContent = '₹ ' + finalprice;
-    document.getElementById('total-price').textContent = '₹ ' + (finalprice + 40);
+    document.getElementById('price').textContent = '₹ ' + finalprice.toFixed(2);
+document.getElementById('total-price').textContent = '₹ ' + (finalprice + 40).toFixed(2);
+
 
     // --- Order Submission Function ---
     const addorder = () => {
@@ -113,21 +114,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         orderItems = {
-            data: courseData.map(item => ({
-                id: generateUniqueKey("ORDER"),
-                TransactionKey: userTransactionKey,
-                title: item.title || "N/A",
-                category: item.category || "N/A",
-                heading: item.heading || "N/A",
-                rating: item.rating || "N/A",
-                price: typeof item.price === "string"
-                    ? parseFloat(item.price.replace(/\$/g, "")) || 0
-                    : Number(item.price) || 0,
-                duration: item.duration || "N/A",
-                pic: item.pic || "",
-                eventdate: currentDate
-            }))
+            data: courseData.map(item => {
+                let numericPrice = 0;
+        
+                if (typeof item.price === "string") {
+                    numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+                } else {
+                    numericPrice = Number(item.price) || 0;
+                }
+        
+                return {
+                    id: generateUniqueKey("ORDER"),
+                    TransactionKey: userTransactionKey,
+                    title: item.title || "N/A",
+                    category: item.category || "N/A",
+                    heading: item.heading || "N/A",
+                    rating: parseFloat(item.rating) || 0,
+                    price: numericPrice,
+                    duration: item.duration || "N/A",
+                    pic: item.pic || "",
+                    eventdate: currentDate
+                };
+            })
         };
+        
         
 
         console.log("User Transaction Data:", userTransaction);
