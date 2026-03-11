@@ -430,6 +430,27 @@
         defer></script>
         <script src="https://cdn.c360a.salesforce.com/beacon/c360a/6bb9fc91-009e-4e4d-b158-622ae6011eba/scripts/c360a.min.js" defer></script>
     <script src="https://cdn.c360a.salesforce.com/beacon/c360a/30921d56-4160-4d40-b530-cdf8c5e0ab40/scripts/c360a.min.js" defer></script>
+    <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DKY00000NTi6j',
+				'web_course_Ecomerce_site',
+				'https://ae1758531715858.my.site.com/ESWwebcourseEcomercesi1773225284131',
+				{
+					scrt2URL: 'https://ae1758531715858.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://ae1758531715858.my.site.com/ESWwebcourseEcomercesi1773225284131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 
 </html>
+
